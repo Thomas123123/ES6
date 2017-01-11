@@ -9,15 +9,47 @@ In ES6 javascript variable type 多一種 : undefined、NULL、Number、String�
 
 Symbol值通過**Symbol函數**生成，object property name現在可以有兩種類型，一種是原來就有的string，另一種就是新增的Symbol類型。凡是property name屬於Symbol類型，就都是獨一無二的。  
 
-``` js
-let s = Symbol();
+---
 
-typeof s     // "symbol"
+``` js
+
+ES5 
+var obj = {name : "thomas" , age : 18 , single : false}
+/*
+    name : "thomas"
+    age : 18
+    single : false
+*/
+
+ES6
+var _name = Symbol('name'),
+    age = Symbol('age'),
+    single = Symbol('single'),
+    obj = {}
+
+obj[_name] = 'thomas'
+obj[age] = 18
+obj[single] = false
+/*
+    Symbol(name) : "thomas"
+    Symbol(age) : 18
+    Symbol(single) : false
+*/
+
+
+```
+
+---
+
+``` js
+var sym = Symbol();
+
+typeof sym     // "symbol"
 ```
 
 * 注意，Symbol function前不能使用new prefix，否則會報錯。這是因為生成的Symbol function是一個Primitive type的值，不是object。也就是說，由於Symbol is not object，所以不能添加property。基本上，它是一種類似於string type。  
 
-Symbol function可以接受一個string作為parameter，表示對Symbol實例的描述，主要是為了在控制台顯示，或者轉為字符串時，比較容易區分。  
+Symbol function可以接受一個string作為argument，表示對Symbol實例的描述，主要是為了在控制台顯示，或者轉為字符串時，比較容易區分。  
 
 ``` js
 var s1 = Symbol('foo');
@@ -113,4 +145,18 @@ Object.defineProperty(a, mySymbol, { value: 'Hello!' });
 // 以上写法都得到同样结果
 a[mySymbol] // "Hello!"
 ```
+
+Symbol值作為對象屬性名時，不能用點運算符。  
+
+``` js
+var mySymbol = Symbol();
+var a = {};
+
+a.mySymbol = 'Hello!';
+a[mySymbol] // undefined
+a['mySymbol'] // "Hello!"
+```
+
+
+
 
