@@ -23,7 +23,7 @@ ES5
 var obj = {
       name : "thomas", 
       age : 18 , 
-      single : false
+      single : false 
     }
 /*
     name : "thomas"
@@ -54,7 +54,7 @@ var obj = {
 
 * 注意，Symbol function前不能使用new prefix，否則會報錯。這是因為生成的Symbol function是一個Primitive type的值，不是object。也就是說，由於Symbol is not object，所以不能添加property。基本上，它是一種類似於string type。  
 
-Symbol function可以接受一個string作為parameter，表示對Symbol實例的描述，主要是為了在控制台顯示，或者轉為字符串時，比較容易區分。  
+Symbol function可以接受一個string作為argument，表示對Symbol實例的描述，主要是為了在console顯示，或者轉為string時，比較容易區分。  
 
 ``` js
 var s1 = Symbol('foo');
@@ -67,9 +67,9 @@ s1.toString() // "Symbol(foo)"
 s2.toString() // "Symbol(bar)"
 ```
 
-上面code中，s1和s2是兩個Symbol value。如果不加parameter，它們在console的output都是Symbol()，不利於區分。有了argument以後，就等於為它們加上了description，output的時候就能夠分清。  
+上面code中，s1和s2是兩個Symbol value。如果不加argument，它們在console的output都是Symbol()，不利於區分。有了argument以後，就等於為它們加上了description，output的時候就能夠分清。  
 
-如果Symbol function的argument is a object，就會invoke this object的toString method，將其轉為string，然後才生成一個Symbol值。  
+如果Symbol function argument is a object，就會call this object的toString method，將其轉為string，然後才生成一個Symbol value。  
 
 ``` js
 const obj = {
@@ -82,16 +82,16 @@ const sym = Symbol(obj);
 sym // Symbol(abc)
 ```
 
-Symbol function的parameter只是表示對當前Symbol value的description，因此相同parameter的Symbol function的return value是不相等的。  
+Symbol function的argument只是表示對當前Symbol value的description，因此相同argument的Symbol function的return value是不相等的。  
 
 ``` js
-// 沒有parameter
+// 沒有argument
 var s1 = Symbol();
 var s2 = Symbol();
 
 s1 === s2 // false
 
-// 有parameter
+// 有argument
 var s1 = Symbol('foo');
 var s2 = Symbol('foo');
 
@@ -116,7 +116,7 @@ String(sym) // 'Symbol(My symbol)'
 sym.toString() // 'Symbol(My symbol)'
 ```
 
-另外，Symbol值也可以轉為布爾值，但是不能轉為數值。  
+另外，Symbol值也可以轉為boolean，但是不能轉為number。  
 
 ``` js
 var sym = Symbol();
@@ -151,7 +151,7 @@ Object.defineProperty(a, mySymbol, { value: 'Hello!' });
 a[mySymbol] // "Hello!"
 ```
 
-Symbol值作為對象屬性名時，不能用點運算符。  
+Symbol value作為object property name時，不能用點運算符。  
 
 ``` js
 var mySymbol = Symbol();
@@ -162,41 +162,36 @@ a[mySymbol] // undefined
 a['mySymbol'] // "Hello!"
 ```
 
-inner object，使用Symbol value定義property時，Symbol value必須放在方括號之中。
+### **property name iteration**
+
+Symbol作為property name，該屬性不會出現在<font color = 'red'>for...in</font>、<font color = 'red'>for...of</font>循環中，也不會被<font color = 'red'>Object.keys()</font>、<font color = 'red'>Object.getOwnPropertyNames()</font>、<font color = 'red'>JSON.stringify()</font> return。但是，有一個<font color = 'red'>Object.getOwnPropertySymbols</font>方法，可以獲取指定object的所有Symbol屬性名。  
+
+<font color = 'red'>Object.getOwnPropertySymbols</font>方法return an array，成員是當前object的所有用symbol value作property name的都會被取出。  
 
 ``` js
-var s = Symbol();
+    var obj = {};
+    var a = Symbol('a');
+    var b = Symbol('b');
 
-var obj = {
-  [s]: function (argument) { ... }
-};
+    obj[a] = 'Hello';
+    obj[b] = 'World';
 
-obj[s](123);
+    var objectSymbols = Object.getOwnPropertySymbols(obj);
 
-/*
-  var obj = {
-    [s](argument) { ... }
-  };
-*/
+    objectSymbols
+    // [Symbol(a), Symbol(b)]
 ```
 
-### **Instance：remove magic string**
-
-Magic string the mean，在code之中多次出現、與code形成strong coupling的某一個具體的string或者number。風格良好的code，應該盡量remove magic string。
+<font color = 'red'>Reflect.ownKeys</font>方法可以返回所有類型的property name，包括常規name和Symbol value。  
 
 ``` js
-function getArea(shape, options) {
-  var area = 0;
+    var a = Symbol('a');
+    var obj = {
+          [a]: 1,
+          enum: 2,
+          nonEnum: 3
+        };
 
-  switch (shape) {
-    case 'Triangle': // magic string
-      area = .5 * options.width * options.height;
-      break;
-    /* ... more code ... */
-  }
-
-  return area;
-}
-
-getArea('Triangle', { width: 100, height: 100 }); // magic string
+    Reflect.ownKeys(obj)   // ["enum", "nonEnum", Symbol(a)]
 ```
+

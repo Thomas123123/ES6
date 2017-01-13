@@ -310,7 +310,7 @@ ES5
 <span class="hljs-keyword">var</span> obj = {
       name : <span class="hljs-string">&quot;thomas&quot;</span>, 
       age : <span class="hljs-number">18</span> , 
-      single : <span class="hljs-literal">false</span>
+      single : <span class="hljs-literal">false</span> 
     }
 <span class="hljs-comment">/*
     name : &quot;thomas&quot;
@@ -338,7 +338,7 @@ ES6
 <ul>
 <li>&#x6CE8;&#x610F;&#xFF0C;Symbol function&#x524D;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;new prefix&#xFF0C;&#x5426;&#x5247;&#x6703;&#x5831;&#x932F;&#x3002;&#x9019;&#x662F;&#x56E0;&#x70BA;&#x751F;&#x6210;&#x7684;Symbol function&#x662F;&#x4E00;&#x500B;Primitive type&#x7684;&#x503C;&#xFF0C;&#x4E0D;&#x662F;object&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8AAA;&#xFF0C;&#x7531;&#x65BC;Symbol is not object&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x80FD;&#x6DFB;&#x52A0;property&#x3002;&#x57FA;&#x672C;&#x4E0A;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x7A2E;&#x985E;&#x4F3C;&#x65BC;string type&#x3002;  </li>
 </ul>
-<p>Symbol function&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x500B;string&#x4F5C;&#x70BA;parameter&#xFF0C;&#x8868;&#x793A;&#x5C0D;Symbol&#x5BE6;&#x4F8B;&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x70BA;&#x4E86;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x986F;&#x793A;&#xFF0C;&#x6216;&#x8005;&#x8F49;&#x70BA;&#x5B57;&#x7B26;&#x4E32;&#x6642;&#xFF0C;&#x6BD4;&#x8F03;&#x5BB9;&#x6613;&#x5340;&#x5206;&#x3002;  </p>
+<p>Symbol function&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x500B;string&#x4F5C;&#x70BA;argument&#xFF0C;&#x8868;&#x793A;&#x5C0D;Symbol&#x5BE6;&#x4F8B;&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x70BA;&#x4E86;&#x5728;console&#x986F;&#x793A;&#xFF0C;&#x6216;&#x8005;&#x8F49;&#x70BA;string&#x6642;&#xFF0C;&#x6BD4;&#x8F03;&#x5BB9;&#x6613;&#x5340;&#x5206;&#x3002;  </p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> s1 = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;foo&apos;</span>);
 <span class="hljs-keyword">var</span> s2 = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;bar&apos;</span>);
 
@@ -348,8 +348,8 @@ s2 <span class="hljs-comment">// Symbol(bar)</span>
 s1.toString() <span class="hljs-comment">// &quot;Symbol(foo)&quot;</span>
 s2.toString() <span class="hljs-comment">// &quot;Symbol(bar)&quot;</span>
 </code></pre>
-<p>&#x4E0A;&#x9762;code&#x4E2D;&#xFF0C;s1&#x548C;s2&#x662F;&#x5169;&#x500B;Symbol value&#x3002;&#x5982;&#x679C;&#x4E0D;&#x52A0;parameter&#xFF0C;&#x5B83;&#x5011;&#x5728;console&#x7684;output&#x90FD;&#x662F;Symbol()&#xFF0C;&#x4E0D;&#x5229;&#x65BC;&#x5340;&#x5206;&#x3002;&#x6709;&#x4E86;argument&#x4EE5;&#x5F8C;&#xFF0C;&#x5C31;&#x7B49;&#x65BC;&#x70BA;&#x5B83;&#x5011;&#x52A0;&#x4E0A;&#x4E86;description&#xFF0C;output&#x7684;&#x6642;&#x5019;&#x5C31;&#x80FD;&#x5920;&#x5206;&#x6E05;&#x3002;  </p>
-<p>&#x5982;&#x679C;Symbol function&#x7684;argument is a object&#xFF0C;&#x5C31;&#x6703;invoke this object&#x7684;toString method&#xFF0C;&#x5C07;&#x5176;&#x8F49;&#x70BA;string&#xFF0C;&#x7136;&#x5F8C;&#x624D;&#x751F;&#x6210;&#x4E00;&#x500B;Symbol&#x503C;&#x3002;  </p>
+<p>&#x4E0A;&#x9762;code&#x4E2D;&#xFF0C;s1&#x548C;s2&#x662F;&#x5169;&#x500B;Symbol value&#x3002;&#x5982;&#x679C;&#x4E0D;&#x52A0;argument&#xFF0C;&#x5B83;&#x5011;&#x5728;console&#x7684;output&#x90FD;&#x662F;Symbol()&#xFF0C;&#x4E0D;&#x5229;&#x65BC;&#x5340;&#x5206;&#x3002;&#x6709;&#x4E86;argument&#x4EE5;&#x5F8C;&#xFF0C;&#x5C31;&#x7B49;&#x65BC;&#x70BA;&#x5B83;&#x5011;&#x52A0;&#x4E0A;&#x4E86;description&#xFF0C;output&#x7684;&#x6642;&#x5019;&#x5C31;&#x80FD;&#x5920;&#x5206;&#x6E05;&#x3002;  </p>
+<p>&#x5982;&#x679C;Symbol function argument is a object&#xFF0C;&#x5C31;&#x6703;call this object&#x7684;toString method&#xFF0C;&#x5C07;&#x5176;&#x8F49;&#x70BA;string&#xFF0C;&#x7136;&#x5F8C;&#x624D;&#x751F;&#x6210;&#x4E00;&#x500B;Symbol value&#x3002;  </p>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> obj = {
   toString() {
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;abc&apos;</span>;
@@ -359,14 +359,14 @@ s2.toString() <span class="hljs-comment">// &quot;Symbol(bar)&quot;</span>
 <span class="hljs-keyword">const</span> sym = <span class="hljs-built_in">Symbol</span>(obj);
 sym <span class="hljs-comment">// Symbol(abc)</span>
 </code></pre>
-<p>Symbol function&#x7684;parameter&#x53EA;&#x662F;&#x8868;&#x793A;&#x5C0D;&#x7576;&#x524D;Symbol value&#x7684;description&#xFF0C;&#x56E0;&#x6B64;&#x76F8;&#x540C;parameter&#x7684;Symbol function&#x7684;return value&#x662F;&#x4E0D;&#x76F8;&#x7B49;&#x7684;&#x3002;  </p>
-<pre><code class="lang-js"><span class="hljs-comment">// &#x6C92;&#x6709;parameter</span>
+<p>Symbol function&#x7684;argument&#x53EA;&#x662F;&#x8868;&#x793A;&#x5C0D;&#x7576;&#x524D;Symbol value&#x7684;description&#xFF0C;&#x56E0;&#x6B64;&#x76F8;&#x540C;argument&#x7684;Symbol function&#x7684;return value&#x662F;&#x4E0D;&#x76F8;&#x7B49;&#x7684;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x6C92;&#x6709;argument</span>
 <span class="hljs-keyword">var</span> s1 = <span class="hljs-built_in">Symbol</span>();
 <span class="hljs-keyword">var</span> s2 = <span class="hljs-built_in">Symbol</span>();
 
 s1 === s2 <span class="hljs-comment">// false</span>
 
-<span class="hljs-comment">// &#x6709;parameter</span>
+<span class="hljs-comment">// &#x6709;argument</span>
 <span class="hljs-keyword">var</span> s1 = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;foo&apos;</span>);
 <span class="hljs-keyword">var</span> s2 = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;foo&apos;</span>);
 
@@ -384,7 +384,7 @@ s1 === s2 <span class="hljs-comment">// false</span>
 <span class="hljs-built_in">String</span>(sym) <span class="hljs-comment">// &apos;Symbol(My symbol)&apos;</span>
 sym.toString() <span class="hljs-comment">// &apos;Symbol(My symbol)&apos;</span>
 </code></pre>
-<p>&#x53E6;&#x5916;&#xFF0C;Symbol&#x503C;&#x4E5F;&#x53EF;&#x4EE5;&#x8F49;&#x70BA;&#x5E03;&#x723E;&#x503C;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x8F49;&#x70BA;&#x6578;&#x503C;&#x3002;  </p>
+<p>&#x53E6;&#x5916;&#xFF0C;Symbol&#x503C;&#x4E5F;&#x53EF;&#x4EE5;&#x8F49;&#x70BA;boolean&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x8F49;&#x70BA;number&#x3002;  </p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> sym = <span class="hljs-built_in">Symbol</span>();
 <span class="hljs-built_in">Boolean</span>(sym) <span class="hljs-comment">// true</span>
 !sym         <span class="hljs-comment">// false</span>
@@ -412,7 +412,7 @@ a[mySymbol] = <span class="hljs-string">&apos;Hello!&apos;</span>;
 <span class="hljs-comment">// &#x4EE5;&#x4E0A;&#x5199;&#x6CD5;&#x90FD;&#x5F97;&#x5230;&#x540C;&#x6837;&#x7ED3;&#x679C;</span>
 a[mySymbol] <span class="hljs-comment">// &quot;Hello!&quot;</span>
 </code></pre>
-<p>Symbol&#x503C;&#x4F5C;&#x70BA;&#x5C0D;&#x8C61;&#x5C6C;&#x6027;&#x540D;&#x6642;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;&#x9EDE;&#x904B;&#x7B97;&#x7B26;&#x3002;  </p>
+<p>Symbol value&#x4F5C;&#x70BA;object property name&#x6642;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;&#x9EDE;&#x904B;&#x7B97;&#x7B26;&#x3002;  </p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> mySymbol = <span class="hljs-built_in">Symbol</span>();
 <span class="hljs-keyword">var</span> a = {};
 
@@ -420,37 +420,30 @@ a.mySymbol = <span class="hljs-string">&apos;Hello!&apos;</span>;
 a[mySymbol] <span class="hljs-comment">// undefined</span>
 a[<span class="hljs-string">&apos;mySymbol&apos;</span>] <span class="hljs-comment">// &quot;Hello!&quot;</span>
 </code></pre>
-<p>inner object&#xFF0C;&#x4F7F;&#x7528;Symbol value&#x5B9A;&#x7FA9;property&#x6642;&#xFF0C;Symbol value&#x5FC5;&#x9808;&#x653E;&#x5728;&#x65B9;&#x62EC;&#x865F;&#x4E4B;&#x4E2D;&#x3002;</p>
-<pre><code class="lang-js"><span class="hljs-keyword">var</span> s = <span class="hljs-built_in">Symbol</span>();
+<h3 id="property-name-iteration"><strong>property name iteration</strong></h3>
+<p>Symbol&#x4F5C;&#x70BA;property name&#xFF0C;&#x8A72;&#x5C6C;&#x6027;&#x4E0D;&#x6703;&#x51FA;&#x73FE;&#x5728;<font color="red">for...in</font>&#x3001;<font color="red">for...of</font>&#x5FAA;&#x74B0;&#x4E2D;&#xFF0C;&#x4E5F;&#x4E0D;&#x6703;&#x88AB;<font color="red">Object.keys()</font>&#x3001;<font color="red">Object.getOwnPropertyNames()</font>&#x3001;<font color="red">JSON.stringify()</font> return&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x6709;&#x4E00;&#x500B;<font color="red">Object.getOwnPropertySymbols</font>&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x7372;&#x53D6;&#x6307;&#x5B9A;object&#x7684;&#x6240;&#x6709;Symbol&#x5C6C;&#x6027;&#x540D;&#x3002;  </p>
+<p><font color="red">Object.getOwnPropertySymbols</font>&#x65B9;&#x6CD5;return an array&#xFF0C;&#x6210;&#x54E1;&#x662F;&#x7576;&#x524D;object&#x7684;&#x6240;&#x6709;&#x7528;symbol value&#x4F5C;property name&#x7684;&#x90FD;&#x6703;&#x88AB;&#x53D6;&#x51FA;&#x3002;  </p>
+<pre><code class="lang-js">    <span class="hljs-keyword">var</span> obj = {};
+    <span class="hljs-keyword">var</span> a = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;a&apos;</span>);
+    <span class="hljs-keyword">var</span> b = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;b&apos;</span>);
 
-<span class="hljs-keyword">var</span> obj = {
-  [s]: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">argument</span>) </span>{ ... }
-};
+    obj[a] = <span class="hljs-string">&apos;Hello&apos;</span>;
+    obj[b] = <span class="hljs-string">&apos;World&apos;</span>;
 
-obj[s](<span class="hljs-number">123</span>);
+    <span class="hljs-keyword">var</span> objectSymbols = <span class="hljs-built_in">Object</span>.getOwnPropertySymbols(obj);
 
-<span class="hljs-comment">/*
-  var obj = {
-    [s](argument) { ... }
-  };
-*/</span>
+    objectSymbols
+    <span class="hljs-comment">// [Symbol(a), Symbol(b)]</span>
 </code></pre>
-<h3 id="instance&#xFF1A;remove-magic-string"><strong>Instance&#xFF1A;remove magic string</strong></h3>
-<p>Magic string the mean&#xFF0C;&#x5728;code&#x4E4B;&#x4E2D;&#x591A;&#x6B21;&#x51FA;&#x73FE;&#x3001;&#x8207;code&#x5F62;&#x6210;strong coupling&#x7684;&#x67D0;&#x4E00;&#x500B;&#x5177;&#x9AD4;&#x7684;string&#x6216;&#x8005;number&#x3002;&#x98A8;&#x683C;&#x826F;&#x597D;&#x7684;code&#xFF0C;&#x61C9;&#x8A72;&#x76E1;&#x91CF;remove magic string&#x3002;</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span>(<span class="hljs-params">shape, options</span>) </span>{
-  <span class="hljs-keyword">var</span> area = <span class="hljs-number">0</span>;
+<p><font color="red">Reflect.ownKeys</font>&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x985E;&#x578B;&#x7684;property name&#xFF0C;&#x5305;&#x62EC;&#x5E38;&#x898F;name&#x548C;Symbol value&#x3002;  </p>
+<pre><code class="lang-js">    <span class="hljs-keyword">var</span> a = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;a&apos;</span>);
+    <span class="hljs-keyword">var</span> obj = {
+          [a]: <span class="hljs-number">1</span>,
+          enum: <span class="hljs-number">2</span>,
+          nonEnum: <span class="hljs-number">3</span>
+        };
 
-  <span class="hljs-keyword">switch</span> (shape) {
-    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;Triangle&apos;</span>: <span class="hljs-comment">// magic string</span>
-      area = <span class="hljs-number">.5</span> * options.width * options.height;
-      <span class="hljs-keyword">break</span>;
-    <span class="hljs-comment">/* ... more code ... */</span>
-  }
-
-  <span class="hljs-keyword">return</span> area;
-}
-
-getArea(<span class="hljs-string">&apos;Triangle&apos;</span>, { width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span> }); <span class="hljs-comment">// magic string</span>
+    <span class="hljs-built_in">Reflect</span>.ownKeys(obj)   <span class="hljs-comment">// [&quot;enum&quot;, &quot;nonEnum&quot;, Symbol(a)]</span>
 </code></pre>
 
                                 
@@ -495,7 +488,7 @@ getArea(<span class="hljs-string">&apos;Triangle&apos;</span>, { width: <span cl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.Symbol","level":"1.2","depth":1,"next":{"title":"2.set&map","level":"1.3","depth":1,"path":"source/setmap.md","ref":"source/setmap.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"source/symbol.md","mtime":"2017-01-12T06:02:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-12T06:02:57.013Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.Symbol","level":"1.2","depth":1,"next":{"title":"2.set&map","level":"1.3","depth":1,"path":"source/setmap.md","ref":"source/setmap.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"source/symbol.md","mtime":"2017-01-13T04:03:09.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-01-13T05:37:05.648Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
