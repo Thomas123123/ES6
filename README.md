@@ -1,8 +1,8 @@
 ﻿
-# <center>javascript good parts</center>
+# <center>ECMAscript 6</center>
 ------------------------
 ###1.symbol
-###2.set*map
+###2.set&map
 ###3.proxy
 ###4.reflect
 ###5.iterator
