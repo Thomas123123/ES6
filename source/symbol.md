@@ -162,6 +162,49 @@ a[mySymbol] // undefined
 a['mySymbol'] // "Hello!"
 ```
 
+### **Instance：remove magic string**
+
+Magic string the mean，在code之中多次出現、與code形成strong coupling某一個具體的string或者number。風格良好的code，應該盡量remove magic string。
+
+``` js
+function getData(maxwin) {
+  switch (maxwin) {
+    case 'ks': // magic string
+      return '高雄'
+      break;
+    /* ... more code ... */
+  }
+}
+
+getData('ks'); // magic string
+```
+
+常用的remove magic string的方法，就是把它寫成一個variable。  
+
+``` js
+var companyAd = {
+  ks : 'ks'
+};
+
+function getArea(maxwin) {
+  switch (maxwin) {
+    case companyAd.ks:
+      return '高雄'
+      break;
+  }
+}
+
+getArea(companyAd.ks);
+```
+
+可以發現companyAd.ks等於哪個value並不重要，只要確保不會跟其他companyAd property value衝突即可。因此，這裡就很適合改用Symbol value
+
+``` js
+  const companyAd = {
+    ks : Symbol()
+  };
+```
+
 ### **property name iteration**
 
 Symbol作為property name，該屬性不會出現在<font color = 'red'>for...in</font>、<font color = 'red'>for...of</font>循環中，也不會被<font color = 'red'>Object.keys()</font>、<font color = 'red'>Object.getOwnPropertyNames()</font>、<font color = 'red'>JSON.stringify()</font> return。但是，有一個<font color = 'red'>Object.getOwnPropertySymbols</font>方法，可以獲取指定object的所有Symbol屬性名。  
