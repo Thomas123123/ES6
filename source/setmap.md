@@ -257,3 +257,91 @@ map.get(+0) // 123
 
 ---
 
+### **instance property and method**
+
+method
+
+``` js
+var map = new Map();
+
+map.set(key name, key value)  // 設定name跟value
+map.get(key name)    // 取得key value
+map.has(key name)    // 判斷key name是否存在
+map.delete(key name) // 刪除指定key name
+map.clear() // 刪除全部key name
+```
+
+遍歷方法跟set一樣
+
+<font color = 'red'>keys()</font>：return key name的遍歷器
+<font color = 'red'>values()</font>：return key value的遍歷器
+<font color = 'red'>entries()</font>：return [key name,key value]的遍歷器
+<font color = 'red'>forEach()</font>：遍歷Map的所有成員
+
+``` js
+let map = new Map([
+  ['F', 'no'],
+  ['T',  'yes'],
+]);
+
+for (let key of map.keys()) {
+  console.log(key);
+}
+// "F"
+// "T"
+
+for (let value of map.values()) {
+  console.log(value);
+}
+// "no"
+// "yes"
+
+for (let item of map.entries()) {
+  console.log(item[0], item[1]);
+}
+// "F" "no"
+// "T" "yes"
+```
+
+Map結構轉為數組結構，比較快速的方法是結合使用擴展運算符（...）。
+
+``` js
+let map = new Map([
+  [1, 'one'],
+  [2, 'two'],
+  [3, 'three'],
+]);
+
+[...map.keys()]
+// [1, 2, 3]
+
+[...map.values()]
+// ['one', 'two', 'three']
+
+[...map.entries()]
+// [[1,'one'], [2, 'two'], [3, 'three']]
+
+[...map]
+// [[1,'one'], [2, 'two'], [3, 'three']]
+```
+
+結合array的map方法、filter方法，可以實現Map的遍歷和過濾（Map本身沒有map和filter方法）。
+
+
+``` js
+let map0 = new Map()
+  .set(1, 'a')
+  .set(2, 'b')
+  .set(3, 'c');
+
+let map1 = new Map(
+  [...map0].filter(([k, v]) => k < 3)
+);
+// Map {1 => 'a', 2 => 'b'}
+
+let map2 = new Map(
+  [...map0].map(([k, v]) => [k * 2, '_' + v])
+    );
+// Map {2 => '_a', 4 => '_b', 6 => '_c'}
+```
+
