@@ -1,7 +1,7 @@
 # 2.set&map
 
 ---
->ES6提供了新的數據結構Set。它類似於數組，但是成員的值都是唯一的，沒有重複的值。
+>ES6提供了新的數據結構Set。它類似於array，但是成員的值都是唯一的，沒有重複的值。
 
 Set本身是一個構造函數，用來生成Set數據結構。  
 
@@ -343,5 +343,28 @@ let map2 = new Map(
   [...map0].map(([k, v]) => [k * 2, '_' + v])
     );
 // Map {2 => '_a', 4 => '_b', 6 => '_c'}
+```
+
+# **WeakSet**
+
+WeakSet結構與Set類似，也是不重複的value的集合。但是，它與Set有兩個區別。
+
+1.WeakSet的成員只能是object，而不能是其他類型的value。
+
+2.WeakSet中的object都是弱引用，即垃圾回收機制不考慮WeakSet對該object的引用，也就是說，如果其他object都不再引用該object，那麼垃圾回收機制會自動回收該object所佔用的內存，不考慮該object還存在於WeakSet之中。這個特點意味著，無法引用WeakSet的成員，因此WeakSet是不可iteration的。  
+
+``` js
+var ws = new WeakSet();
+ws.add(1)
+// TypeError: Invalid value used in weak set
+ws.add(Symbol())
+// TypeError: invalid value used in weak set
+```
+
+作為構造函數，WeakSet可以接受一個array或array like的object作為argument。（實際上，任何具有iterable接口的object，都可以作為WeakSet的argument。）該array的所有成員，都會自動成為WeakSet instance object的成員。  
+
+``` js
+var a = [[1,2], [3,4]];
+var ws = new WeakSet(a);
 ```
 

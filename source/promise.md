@@ -125,10 +125,6 @@ Promise instance具有then方法，也就是说，then方法是定義在Promise.
 
 ---
 
-### **Promise.prototype.catch()**
-
-
-
 ### **Promise.all()**
 
 Promise.all方法用於將多個Promise實例，包裝成一個新的Promise實例。  
@@ -195,11 +191,11 @@ p.catch(error => console.log(error))
 
 Promise.resolve方法的參數分成四種情況。
 
-1. argument是一個Promise instance
+1.argument是一個Promise instance
 
 如果argument是Promise instance，那麼Promise.resolve將不做任何修改、原封不動地return這個instance。  
 
-2. argument是一個thenable object
+2.argument是一個thenable object
 
 thenable object指的是具有then方法的object，比如下面這個object。  
 
@@ -226,7 +222,7 @@ p1.then(function(value) {
 });
 ```
 
-3. argument不是具有then方法的object，或根本就不是object
+3.argument不是具有then方法的object，或根本就不是object
 
 如果argument是一個primitive value，或者是一個不具有then方法的object，則Promise.resolve()return一個新的Promise object，狀態為Resolved。
 
@@ -239,9 +235,9 @@ p.then(function (s){
 // Hello
 ```
 
-上面code生成一個新的Promise object的instance "p"。由於string "Hello"不屬於異步操作（判斷方法是它不是具有then方法的object），return Promise instance的狀態從一生成就是Resolved，所以callback會立即執行並傳入argument "Hello"。
+上面code生成一個新的Promise object的instance "p"。
 
-4. 不帶有任何參數
+4.不帶有任何參數
 
 直接返回一個Resolved狀態的Promise對象。
 
@@ -252,3 +248,5 @@ p.then(function () {
   // ...
 });
 ```
+
+# **Promise.prototype.catch()**
