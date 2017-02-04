@@ -222,15 +222,200 @@ person.age = 'young' // 'The age is not an integer'
 person.age = 300 // The age seems invalid
 ```
  
+有時，我們會在object上面設置內部屬性，property name的第一個字符使用底線開頭，表示這些屬性不應該被外部使用。結合get和set方法，就可以做到防止這些內部屬性被外部讀寫。
 
+``` js
+var handler = {
+  get (target, key) {
+    func(key, 'get');
+    return target[key];
+  },
+  set (target, key, value) {
+    func(key, 'set');
+    target[key] = value;
+    return true;
+  }
+};
+function func(key, action) {
+  if (key[0] === '_') {
+    throw new Error(`Invalid attempt to ${action} private "${key}" property`);
+  }
+}
+var target = {};
+var proxy = new Proxy(target, handler);
+proxy._prop
+// Error: Invalid attempt to get private "_prop" property
+proxy._prop = 'c'
+// Error: Invalid attempt to set private "_prop" property
+```
+ 
+#### **<font color = 'red'>apply()</font>** 
 
+apply方法攔截函數的調用、call和apply操作。
 
+apply方法可以接受三個參數，分別是目標對象、目標對象的上下文對象（this）和目標對象的參數數組。 
 
+``` js
+var handler = {
+  apply (target, ctx, args) {
+    return Reflect.apply(...arguments);
+  }
+};
+```
 
+下面是一個例子。  
 
+``` js
+var target = function () { return 'I am the target'; };
+var handler = {
+  apply: function () {
+    return 'I am the proxy';
+  }
+};
 
+var p = new Proxy(target, handler);
 
+p()
+// "I am the proxy"
+```
 
+下面是另外一個例子。
 
+``` js
+var twice = {
+  apply (target, ctx, args) {
+    return Reflect.apply(...arguments) * 2;
+  }
+};
+function sum (left, right) {
+  return left + right;
+};
+var proxy = new Proxy(sum, twice);
+proxy(1, 2) // 6
+proxy.call(null, 5, 6) // 22
+proxy.apply(null, [7, 8]) // 30
+```
 
+上面code中，每當執行proxy function（直接調用或call和apply調用），就會被apply方法攔截。  
 
+#### **<font color = 'red'>has()</font>**  
+
+has方法用來interception HasProperty操作，即判斷object是否具有某個property時，這個方法會生效。典型的操作就是in運算符。 
+
+下面的例子使用has方法隱藏某些屬性，不被in運算符發現。  
+
+``` js
+var handler = {
+  has (target, key) {
+    if (key[0] === '_') {
+      return false;
+    }
+    return key in target;
+  }
+};
+var target = { _prop: 'foo', prop: 'foo' };
+var proxy = new Proxy(target, handler);
+'_prop' in proxy // false
+```
+
+如果原對像不可配置或者禁止擴展，這時has攔截會報錯。
+
+``` js
+var obj = { a: 10 };
+Object.preventExtensions(obj);
+
+var p = new Proxy(obj, {
+  has: function(target, prop) {
+    return false;
+  }
+});
+
+'a' in p // TypeError is thrown
+```
+
+上面代碼中，obj對象禁止擴展，結果使用has攔截就會報錯。也就是說，如果某個屬性不可配置（或者目標對像不可擴展），則has方法就不得“隱藏”（即返回false）目標對象的該屬性。  
+
+* has方法interception的是HasProperty操作，而不是HasOwnProperty操作，即has方法不判斷一個屬性是object自身的property，還是繼承的property。  
+
+另外，雖然for...in循環也用到了in運算符，但是has interception對for...in循環不生效。  
+
+``` js
+let stu1 = {name: '張三', score: 59};
+let stu2 = {name: '李四', score: 99};
+
+let handler = {
+  has(target, prop) {
+    if (prop === 'score' && target[prop] < 60) {
+      console.log(`${target.name} 不及格`);
+      return false;
+    }
+    return prop in target;
+  }
+}
+
+let oproxy1 = new Proxy(stu1, handler);
+let oproxy2 = new Proxy(stu2, handler);
+
+'score' in oproxy1
+// 張三 不及格
+// false
+
+'score' in oproxy2
+// true
+
+for (let a in oproxy1) {
+  console.log(oproxy1[a]);
+}
+// 張三
+// 59
+
+for (let b in oproxy2) {
+  console.log(oproxy2[b]);
+}
+// 李四
+// 99
+```
+
+上面代碼中，has interception只對in循環生效，對for...in循環不生效，導致不符合要求的屬性沒有被排除在for...in循環之外。
+
+#### **<font color = 'red'>constructor()</font>**  
+
+construct方法用於interception new命令，下面是interception object的寫法。
+
+``` js
+var handler = {
+  construct (target, args, newTarget) {
+    return new target(...args);
+  }
+};
+```
+
+construct方法可以接受兩個參數。
+
+* target: 目標對象
+* args：構建函數的參數對象
+
+``` js
+var p = new Proxy(function () {}, {
+  construct: function(target, args) {
+    console.log('called: ' + args.join(', '));
+    return { value: args[0] * 10 };
+  }
+});
+
+(new p(1)).value
+// "called: 1"
+// 10
+```
+
+construct方法返回的必須是一個對象，否則會報錯。
+
+``` js
+var p = new Proxy(function() {}, {
+  construct: function(target, argumentsList) {
+    return 1;
+  }
+});
+
+new p() // 报错
+```
