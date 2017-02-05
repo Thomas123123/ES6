@@ -77,7 +77,6 @@ var fproxy = new Proxy(function(x, y) {
 
 fproxy(1, 2) // 1
 new fproxy(1,2) // {value: 2}
-fproxy.prototype === Object.prototype // true
 fproxy.foo // "Hello, foo"
 ```
 
@@ -138,29 +137,6 @@ proxy.name // "thomas"
 proxy.age // 拋出一個錯誤
 ```
 
-下面的例子使用get攔截，實現數組讀取負數的索引。
-
-``` js
-function createArray(...elements) {
-  let handler = {
-    get(target, propKey, receiver) {
-      let index = Number(propKey);
-      if (index < 0) {
-        propKey = String(target.length + index);
-      }
-      return Reflect.get(target, propKey, receiver);
-    }
-  };
-
-  let target = [];
-  target.push(...elements);
-  return new Proxy(target, handler);
-}
-
-let arr = createArray('a', 'b', 'c');
-arr[-1] // c
-```
-
 利用Proxy，可以將讀取屬性的操作（get），轉變為執行某個函數，從而實現屬性的鍊式操作。
 
 ``` js
@@ -197,7 +173,7 @@ pipe(3).double.pow.reverseInt.get; // 63
 set方法用來interception某個property的賦值操作。
 
 ``` js
-let validator = {
+let handler = {
   set: function(obj, prop, value) {
     if (prop === 'age') {
       if (!Number.isInteger(value)) {
@@ -213,7 +189,7 @@ let validator = {
   }
 };
 
-let person = new Proxy({}, validator);
+let person = new Proxy({}, handler);
 
 person.age = 100;
 
@@ -417,5 +393,405 @@ var p = new Proxy(function() {}, {
   }
 });
 
-new p() // 报错
+new p() // Uncaught TypeError: 'construct' on proxy: trap returned non-object ('1')
 ```
+
+#### **<font color = 'red'>deleteproperty()</font>**  
+
+deleteProperty方法用於interception delete操作，如果這個方法拋出錯誤或者返回false，當前屬性就無法被delete命令刪除。
+
+``` js
+var handler = {
+  deleteProperty (target, key) {
+    invariant(key, 'delete');
+    return true;
+  }
+};
+function invariant (key, action) {
+  if (key[0] === '_') {
+    throw new Error(`Invalid attempt to ${action} private "${key}" property`);
+  }
+}
+
+var target = { _prop: 'foo' };
+var proxy = new Proxy(target, handler);
+delete proxy._prop
+// Error: Invalid attempt to delete private "_prop" property
+```
+
+上面代碼中，deleteProperty方法攔截了delete操作符，刪除第一個字符為下劃線的屬性會報錯。
+
+注意，目標對象自身的不可配置（configurable）的屬性，不能被deleteProperty方法刪除，否則報錯。
+
+#### **<font color = 'red'>defineProperty()</font>** 
+
+defineProperty方法攔截了Object.defineProperty操作。  
+
+``` js
+var handler = {
+  defineProperty (target, key, descriptor) {
+    return false;
+  }
+};
+var target = {};
+var proxy = new Proxy(target, handler);
+proxy.foo = 'bar'
+// TypeError: proxy defineProperty handler returned false for property '"foo"'
+```
+
+上面代碼中，defineProperty方法返回false，導致添加新屬性會拋出錯誤。
+
+注意，如果目標對像不可擴展（extensible），則defineProperty不能增加目標對像上不存在的屬性，否則會報錯。另外，如果目標對象的某個屬性不可寫（writable）或不可配置（configurable），則defineProperty方法不得改變這兩個設置。
+
+#### **<font color = 'red'>getOwnPropertyDescriptor()</font>** 
+
+getOwnPropertyDescriptor方法攔截Object.getOwnPropertyDescriptor，返回一個屬性描述對像或者undefined。  
+
+``` js
+var handler = {
+  getOwnPropertyDescriptor (target, key) {
+    if (key[0] === '_') {
+      return;
+    }
+    return Object.getOwnPropertyDescriptor(target, key);
+  }
+};
+var target = { _foo: 'bar', baz: 'tar' };
+var proxy = new Proxy(target, handler);
+Object.getOwnPropertyDescriptor(proxy, 'wat')
+// undefined
+Object.getOwnPropertyDescriptor(proxy, '_foo')
+// undefined
+Object.getOwnPropertyDescriptor(proxy, 'baz')
+// { value: 'tar', writable: true, enumerable: true, configurable: true }
+```
+
+上面代碼中，handler.getOwnPropertyDescriptor方法對於第一個字符為下劃線的屬性名會返回undefined。
+
+#### **<font color = 'red'>getPrototypeOf()</font>** 
+
+getPrototypeOf方法主要用來攔截Object.getPrototypeOf()運算符，以及其他一些操作。
+
+* Object.prototype.__proto__
+* Object.prototype.isPrototypeOf()
+* Object.getPrototypeOf()
+* Reflect.getPrototypeOf()
+* instanceof運算符
+
+``` js
+var proto = {};
+var p = new Proxy({}, {
+  getPrototypeOf(target) {
+    return proto;
+  }
+});
+Object.getPrototypeOf(p) === proto // true
+```
+
+上面代碼中，getPrototypeOf方法攔截Object.getPrototypeOf()，返回proto對象。
+
+注意，getPrototypeOf方法的返回值必須是對像或者null，否則報錯。另外，如果目標對像不可擴展（extensible），getPrototypeOf方法必須返回目標對象的原型對象。
+
+#### **<font color = 'red'>isExtensible()</font>** 
+
+isExtensible方法攔截Object.isExtensible操作。  
+
+``` js
+var p = new Proxy({}, {
+  isExtensible: function(target) {
+    console.log("called");
+    return true;
+  }
+});
+
+Object.isExtensible(p)
+// "called"
+// true
+```
+
+注意，該方法只能返回布爾值，否則返回值會被自動轉為布爾值。
+
+這個方法有一個強限制，它的返回值必須與目標對象的isExtensible屬性保持一致，否則就會拋出錯誤。
+
+#### **<font color = 'red'>ownKeys()</font>** 
+
+ownKeys方法用來攔截以下操作。
+
+* Object.getOwnPropertyNames()
+* Object.getOwnPropertySymbols()
+* Object.keys()
+
+下面是攔截Object.keys()的例子。
+
+``` js
+let target = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+
+let handler = {
+  ownKeys(target) {
+    return ['a'];
+  }
+};
+
+let proxy = new Proxy(target, handler);
+
+Object.keys(proxy)
+// ['a']
+```
+
+上面代碼攔截了對於target對象的Object.keys()操作，只返回a、b、c三個屬性之中的a屬性。  
+
+下面的例子是攔截第一個字符為下劃線的屬性名。  
+
+``` js
+let target = {
+  _bar: 'foo',
+  _prop: 'bar',
+  prop: 'baz'
+};
+
+let handler = {
+  ownKeys (target) {
+    return Reflect.ownKeys(target).filter(key => key[0] !== '_');
+  }
+};
+
+let proxy = new Proxy(target, handler);
+for (let key of Object.keys(proxy)) {
+  console.log(target[key]);
+}
+// "baz"
+```
+
+注意，使用Object.keys方法時，有三類屬性會被ownKeys方法自動過濾，不會返回。
+
+* 目標對像上不存在的屬性
+* 屬性名為Symbol 值
+* 不可遍歷（enumerable）的屬性
+
+``` js
+let target = {
+  a: 1,
+  b: 2,
+  c: 3,
+  [Symbol.for('secret')]: '4',
+};
+
+Object.defineProperty(target, 'key', {
+  enumerable: false,
+  configurable: true,
+  writable: true,
+  value: 'static'
+});
+
+let handler = {
+  ownKeys(target) {
+    return ['a', 'd', Symbol.for('secret'), 'key'];
+  }
+};
+
+let proxy = new Proxy(target, handler);
+
+Object.keys(proxy)
+// ['a']
+```
+
+上面代碼中，ownKeys方法之中，顯式返回不存在的屬性（d）、Symbol值（Symbol.for('secret')）、不可遍歷的屬性（key），結果都被自動過濾掉。  
+
+---
+
+ownKeys方法還可以攔截Object.getOwnPropertyNames()。
+
+``` js
+var p = new Proxy({}, {
+  ownKeys: function(target) {
+    return ['a', 'b', 'c'];
+  }
+});
+
+Object.getOwnPropertyNames(p)
+// [ 'a', 'b', 'c' ]
+```
+
+ownKeys方法返回的數組成員，只能是字符串或Symbol 值。如果有其他類型的值，或者返回的根本不是數組，就會報錯。  
+
+``` js
+var obj = {};
+
+var p = new Proxy(obj, {
+  ownKeys: function(target) {
+    return [123, true, undefined, null, {}, []];
+  }
+});
+
+Object.getOwnPropertyNames(p)
+// Uncaught TypeError: 123 is not a valid property name
+```
+
+如果目標對象自身包含不可配置的屬性，則該屬性必須被ownKeys方法返回，否則報錯。  
+
+``` js
+var obj = {};
+Object.defineProperty(obj, 'a', {
+  configurable: false,
+  enumerable: true,
+  value: 10 }
+);
+
+var p = new Proxy(obj, {
+  ownKeys: function(target) {
+    return ['b'];
+  }
+});
+
+Object.getOwnPropertyNames(p)
+// Uncaught TypeError: 'ownKeys' on proxy: trap result did not include 'a'
+```
+
+另外，如果目標對像是不可擴展的（non-extensition），這時ownKeys方法返回的數組之中，必須包含原對象的所有屬性，且不能包含多餘的屬性，否則報錯。  
+
+``` js
+var obj = {
+  a: 1
+};
+
+Object.preventExtensions(obj);
+
+var p = new Proxy(obj, {
+  ownKeys: function(target) {
+    return ['a', 'b'];
+  }
+});
+
+Object.getOwnPropertyNames(p)
+// Uncaught TypeError: 'ownKeys' on proxy: trap returned extra keys but proxy target is non-extensible
+```
+
+#### **<font color = 'red'>preventExtensions()</font>** 
+
+preventExtensions方法攔截Object.preventExtensions()。該方法必須返回一個布爾值，否則會被自動轉為布爾值。
+
+這個方法有一個限制，只有目標對像不可擴展時（即Object.isExtensible(proxy)為false），proxy.preventExtensions才能返回true，否則會報錯。
+
+``` js
+var p = new Proxy({}, {
+  preventExtensions: function(target) {
+    return true;
+  }
+});
+
+Object.preventExtensions(p) // 报错
+```
+
+上面代碼中，proxy.preventExtensions方法返回true，但這時Object.isExtensible(proxy)會返回true，因此報錯。
+
+為了防止出現這個問題，通常要在proxy.preventExtensions方法裡面，調用一次Object.preventExtensions。  
+
+``` js
+var p = new Proxy({}, {
+  preventExtensions: function(target) {
+    console.log('called');
+    Object.preventExtensions(target);
+    return true;
+  }
+});
+
+Object.preventExtensions(p)
+// "called"
+// true
+```
+
+#### **<font color = 'red'>setPrototypeOf()</font>** 
+
+setPrototypeOf方法主要用來攔截Object.setPrototypeOf方法。
+
+下面是一個例子。
+
+``` js
+var handler = {
+  setPrototypeOf (target, proto) {
+    throw new Error('Changing the prototype is forbidden');
+  }
+};
+var proto = {};
+var target = function () {};
+var proxy = new Proxy(target, handler);
+Object.setPrototypeOf(proxy, proto);
+// Error: Changing the prototype is forbidden
+```
+
+上面代碼中，只要修改target的原型對象，就會報錯。
+
+注意，該方法只能返回布爾值，否則會被自動轉為布爾值。另外，如果目標對像不可擴展（extensible），setPrototypeOf方法不得改變目標對象的原型。
+
+---
+
+## **Proxy.revocable()**
+
+Proxy.revocable方法返回一個可取消的Proxy 實例。
+
+``` js
+let target = {};
+let handler = {};
+
+let {proxy, revoke} = Proxy.revocable(target, handler);
+
+proxy.foo = 123;
+proxy.foo // 123
+
+revoke();
+proxy.foo // TypeError: Revoked
+```
+
+Proxy.revocable方法返回一個對象，該對象的proxy屬性是Proxy實例，revoke屬性是一個函數，可以取消Proxy實例。上面代碼中，當執行revoke函數之後，再訪問Proxy實例，就會拋出一個錯誤。
+
+Proxy.revocable的一個使用場景是，目標對像不允許直接訪問，必須通過代理訪問，一旦訪問結束，就收回代理權，不允許再次訪問。  
+
+## **this問題**
+
+雖然Proxy可以代理針對目標對象的訪問，但它不是目標對象的透明代理，即不做任何攔截的情況下，也無法保證與目標對象的行為一致。主要原因就是在Proxy代理的情況下，目標對象內部的this關鍵字會指向Proxy代理。  
+
+``` js
+const target = {
+  m: function () {
+    console.log(this === proxy);
+  }
+};
+const handler = {};
+
+const proxy = new Proxy(target, handler);
+
+target.m() // false
+proxy.m()  // true
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
