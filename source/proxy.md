@@ -402,14 +402,14 @@ deleteProperty方法用於interception delete操作，如果這個方法拋出�
 
 ``` js
 var handler = {
-  deleteProperty (target, key) {
-    invariant(key, 'delete');
+  deleteProperty (target, prop) {
+    invariant(prop, 'delete');
     return true;
   }
 };
-function invariant (key, action) {
-  if (key[0] === '_') {
-    throw new Error(`Invalid attempt to ${action} private "${key}" property`);
+function invariant (prop, action) {
+  if (prop[0] === '_') {
+    throw new Error(`Invalid attempt to ${action} private "${prop}" property`);
   }
 }
 
@@ -568,9 +568,9 @@ for (let key of Object.keys(proxy)) {
 
 注意，使用Object.keys方法時，有三類屬性會被ownKeys方法自動過濾，不會返回。
 
-* 目標對像上不存在的屬性
-* 屬性名為Symbol 值
-* 不可遍歷（enumerable）的屬性
+* 目標object上不存在的property
+* property name is Symbol value
+* enumerable的property為false
 
 ``` js
 let target = {
@@ -599,7 +599,7 @@ Object.keys(proxy)
 // ['a']
 ```
 
-上面代碼中，ownKeys方法之中，顯式返回不存在的屬性（d）、Symbol值（Symbol.for('secret')）、不可遍歷的屬性（key），結果都被自動過濾掉。  
+上面代碼中，ownKeys方法之中，顯示返回不存在的屬性（d）、Symbol值（Symbol.for('secret')）、不可遍歷的屬性（key），結果都被自動過濾掉。  
 
 ---
 
@@ -616,7 +616,7 @@ Object.getOwnPropertyNames(p)
 // [ 'a', 'b', 'c' ]
 ```
 
-ownKeys方法返回的數組成員，只能是字符串或Symbol 值。如果有其他類型的值，或者返回的根本不是數組，就會報錯。  
+ownKeys方法返回的array member，只能是string或Symbol value。如果有其他類型的值，或者返回的根本不是array，就會報錯。  
 
 ``` js
 var obj = {};
@@ -651,7 +651,7 @@ Object.getOwnPropertyNames(p)
 // Uncaught TypeError: 'ownKeys' on proxy: trap result did not include 'a'
 ```
 
-另外，如果目標對像是不可擴展的（non-extensition），這時ownKeys方法返回的數組之中，必須包含原對象的所有屬性，且不能包含多餘的屬性，否則報錯。  
+另外，如果目標對像是不可擴展的（non-extensition），這時ownKeys方法返回的數組之中，必須包含原object的所有property，且不能包含多餘的property，否則報錯。  
 
 ``` js
 var obj = {
@@ -749,49 +749,3 @@ proxy.foo // TypeError: Revoked
 Proxy.revocable方法返回一個對象，該對象的proxy屬性是Proxy實例，revoke屬性是一個函數，可以取消Proxy實例。上面代碼中，當執行revoke函數之後，再訪問Proxy實例，就會拋出一個錯誤。
 
 Proxy.revocable的一個使用場景是，目標對像不允許直接訪問，必須通過代理訪問，一旦訪問結束，就收回代理權，不允許再次訪問。  
-
-## **this問題**
-
-雖然Proxy可以代理針對目標對象的訪問，但它不是目標對象的透明代理，即不做任何攔截的情況下，也無法保證與目標對象的行為一致。主要原因就是在Proxy代理的情況下，目標對象內部的this關鍵字會指向Proxy代理。  
-
-``` js
-const target = {
-  m: function () {
-    console.log(this === proxy);
-  }
-};
-const handler = {};
-
-const proxy = new Proxy(target, handler);
-
-target.m() // false
-proxy.m()  // true
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
