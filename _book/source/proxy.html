@@ -1,0 +1,947 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.Proxy · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="reflect.html" />
+    
+    
+    <link rel="prev" href="setmap.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="symbol.html">
+            
+                <a href="symbol.html">
+            
+                    
+                    1.Symbol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="setmap.html">
+            
+                <a href="setmap.html">
+            
+                    
+                    2.set&map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="proxy.html">
+            
+                <a href="proxy.html">
+            
+                    
+                    3.Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="reflect.html">
+            
+                <a href="reflect.html">
+            
+                    
+                    4.reflect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="iterator.html">
+            
+                <a href="iterator.html">
+            
+                    
+                    5.Iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="generator.html">
+            
+                <a href="generator.html">
+            
+                    
+                    6.Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="promise.html">
+            
+                <a href="promise.html">
+            
+                    
+                    7.Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="async.html">
+            
+                <a href="async.html">
+            
+                    
+                    8.異步操作&Async函數
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="class.html">
+            
+                <a href="class.html">
+            
+                    
+                    9.Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="decorator.html">
+            
+                <a href="decorator.html">
+            
+                    
+                    10.Decorator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="module.html">
+            
+                <a href="module.html">
+            
+                    
+                    11.Module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.Proxy</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="3proxy">3.Proxy</h1>
+<hr>
+<p>Proxy &#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x6210;&#xFF0C;&#x5728;&#x76EE;&#x6A19;&#x5C0D;&#x8C61;&#x4E4B;&#x524D;&#x67B6;&#x8A2D;&#x4E00;&#x5C64;&#x201C;interception&#x201D;&#xFF0C;&#x5916;&#x754C;&#x5C0D;&#x8A72;object&#x7684;&#x8A2A;&#x554F;&#xFF0C;&#x90FD;&#x5FC5;&#x9808;&#x5148;&#x901A;&#x904E;&#x9019;&#x5C64;interception&#xFF0C;&#x56E0;&#x6B64;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7A2E;&#x6A5F;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x5C0D;&#x5916;&#x754C;&#x7684;&#x8A2A;&#x554F;&#x9032;&#x884C;&#x904E;&#x6FFE;&#x548C;&#x6539;&#x5BEB;&#x3002;Proxy &#x9019;&#x500B;&#x8A5E;&#x7684;&#x539F;&#x610F;&#x662F;&#x4EE3;&#x7406;&#xFF0C;&#x7528;&#x5728;&#x9019;&#x88E1;&#x8868;&#x793A;&#x7531;&#x5B83;&#x4F86;&#x201C;&#x4EE3;&#x7406;&#x201D;&#x67D0;&#x4E9B;&#x64CD;&#x4F5C;&#xFF0C;&#x53EF;&#x4EE5;&#x8B6F;&#x70BA;&#x201C;&#x4EE3;&#x7406;&#x5668;&#x201D;&#x3002;</p>
+<p>ES6 &#x539F;&#x751F;&#x63D0;&#x4F9B; Proxy &#x69CB;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4F86;&#x751F;&#x6210; Proxy  instance&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+</code></pre>
+<p>new Proxy()&#x8868;&#x793A;&#x751F;&#x6210;&#x4E00;&#x500B;Proxy instance&#xFF0C;<font color="red">target</font>&#x53C3;&#x6578;&#x8868;&#x793A;&#x6240;&#x8981;&#x6514;&#x622A;&#x7684;&#x76EE;&#x6A19;object&#xFF0C;handler&#x53C3;&#x6578;&#x4E5F;&#x662F;&#x4E00;&#x500B;object&#xFF0C;&#x7528;&#x4F86;&#x5B9A;&#x5236;interception&#x884C;&#x70BA;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>({}, {
+  get: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target, property</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">35</span>;
+  }
+});
+
+proxy.time <span class="hljs-comment">// 35</span>
+proxy.name <span class="hljs-comment">// 35</span>
+proxy.title <span class="hljs-comment">// 35</span>
+</code></pre>
+<ul>
+<li>&#x6CE8;&#x610F;&#xFF0C;&#x8981;&#x4F7F;&#x5F97;Proxy&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x5FC5;&#x9808;&#x91DD;&#x5C0D;Proxy instance&#xFF08;&#x4E0A;&#x4F8B;&#x662F;proxy&#x5C0D;&#x8C61;&#xFF09;&#x9032;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x91DD;&#x5C0D;&#x76EE;&#x6A19;object&#xFF08;&#x4E0A;&#x4F8B;&#x662F;&#x7A7A;object&#xFF09;&#x9032;&#x884C;&#x64CD;&#x4F5C;&#x3002;</li>
+</ul>
+<p>&#x5982;&#x679C;handler&#x6C92;&#x6709;&#x8A2D;&#x7F6E;&#x4EFB;&#x4F55;interception&#xFF0C;&#x90A3;&#x5C31;&#x7B49;&#x540C;&#x65BC;&#x76F4;&#x63A5;&#x901A;&#x5411;&#x539F;object&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> target = {};
+<span class="hljs-keyword">var</span> handler = {};
+<span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+proxy.a = <span class="hljs-string">&apos;b&apos;</span>;
+target.a <span class="hljs-comment">// &quot;b&quot;</span>
+</code></pre>
+<p>Proxy instance&#x4E5F;&#x53EF;&#x4EE5;&#x4F5C;&#x70BA;&#x5176;&#x4ED6;object&#x7684;prototype object&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>({}, {
+  get: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target, property</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">35</span>;
+  }
+});
+
+<span class="hljs-keyword">let</span> obj = <span class="hljs-built_in">Object</span>.create(proxy);
+obj.time <span class="hljs-comment">// 35</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;code&#x4E2D;&#xFF0C;proxy object&#x662F;obj object&#x7684;prototype&#xFF0C;obj object&#x672C;&#x8EAB;&#x4E26;&#x6C92;&#x6709;time&#x5C6C;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x6839;&#x64DA;prototype chain&#xFF0C;&#x6703;&#x5728;proxy object&#x4E0A;&#x8B80;&#x53D6;&#x8A72;property&#xFF0C;&#x5C0E;&#x81F4;&#x88AB;interception&#x3002;  </p>
+<p>&#x540C;&#x4E00;&#x500B;interceptor function&#xFF0C;&#x53EF;&#x4EE5;&#x8A2D;&#x7F6E;&#x591A;&#x500B;interception&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> handler = {
+  get: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target, name</span>) </span>{
+    <span class="hljs-keyword">if</span> (name === <span class="hljs-string">&apos;prototype&apos;</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.prototype;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Hello, &apos;</span> + name;
+  },
+
+  apply: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target, thisBinding, args</span>) </span>{
+    <span class="hljs-keyword">return</span> args[<span class="hljs-number">0</span>];
+  },
+
+  construct: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target, args</span>) </span>{
+    <span class="hljs-keyword">return</span> {value: args[<span class="hljs-number">1</span>]};
+  }
+};
+
+<span class="hljs-keyword">var</span> fproxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x, y</span>) </span>{
+  <span class="hljs-keyword">return</span> x + y;
+}, handler);
+
+fproxy(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">new</span> fproxy(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>) <span class="hljs-comment">// {value: 2}</span>
+fproxy.foo <span class="hljs-comment">// &quot;Hello, foo&quot;</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F; Proxy &#x652F;&#x6301;&#x7684;interception&#x65B9;&#x6CD5;&#x3002;</p>
+<ul>
+<li>&#x5C0D;&#x65BC;&#x53EF;&#x4EE5;&#x8A2D;&#x7F6E;&#x3001;&#x4F46;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;interception&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5247;&#x76F4;&#x63A5;&#x843D;&#x5728;&#x76EE;&#x6A19;object&#x4E0A;&#xFF0C;&#x6309;&#x7167;&#x539F;&#x5148;&#x7684;&#x65B9;&#x5F0F;&#x7522;&#x751F;&#x7ED3;&#x679C;&#x3002;</li>
+</ul>
+<p><strong>&#xFF08;1&#xFF09;get(target, propKey, receiver)</strong></p>
+<p><strong>&#xFF08;2&#xFF09;set(target, propKey, value, receiver)</strong></p>
+<p><strong>&#xFF08;3&#xFF09;has(target, propKey)</strong></p>
+<p><strong>&#xFF08;4&#xFF09;deleteProperty(target, propKey)</strong></p>
+<p><strong>&#xFF08;5&#xFF09;ownKeys(target)</strong></p>
+<p><strong>&#xFF08;6&#xFF09;getOwnPropertyDescriptor(target, propKey)</strong></p>
+<p><strong>&#xFF08;7&#xFF09;defineProperty(target, propKey, propDesc)</strong></p>
+<p><strong>&#xFF08;8&#xFF09;preventExtensions(target)</strong></p>
+<p><strong>&#xFF08;9&#xFF09;getPrototypeOf(target)</strong></p>
+<p><strong>&#xFF08;10&#xFF09;isExtensible(target)</strong></p>
+<p><strong>&#xFF08;11&#xFF09;setPrototypeOf(target, proto)</strong></p>
+<p><strong>&#xFF08;12&#xFF09;apply(target, object, args)</strong></p>
+<p><strong>&#xFF08;13&#xFF09;construct(target, args)</strong></p>
+<hr>
+<h2 id="proxy-instance&#x7684;&#x65B9;&#x6CD5;"><strong>Proxy instance&#x7684;&#x65B9;&#x6CD5;</strong></h2>
+<h4 id="get"><strong><font color="red">get()</font></strong></h4>
+<p>&#x7528;&#x65BC;&#x6514;&#x622A;&#x67D0;&#x500B;&#x5C6C;&#x6027;&#x7684;&#x8B80;&#x53D6;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> person = {
+  name: <span class="hljs-string">&quot;thomas&quot;</span>
+};
+
+<span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(person, {
+  get: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target, property</span>) </span>{
+    <span class="hljs-keyword">if</span> (property <span class="hljs-keyword">in</span> target) {
+      <span class="hljs-keyword">return</span> target[property];
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">ReferenceError</span>(<span class="hljs-string">&quot;Property \&quot;&quot;</span> + property + <span class="hljs-string">&quot;\&quot; does not exist.&quot;</span>);
+    }
+  }
+});
+
+proxy.name <span class="hljs-comment">// &quot;thomas&quot;</span>
+proxy.age <span class="hljs-comment">// &#x62CB;&#x51FA;&#x4E00;&#x500B;&#x932F;&#x8AA4;</span>
+</code></pre>
+<p>&#x5229;&#x7528;Proxy&#xFF0C;&#x53EF;&#x4EE5;&#x5C07;&#x8B80;&#x53D6;&#x5C6C;&#x6027;&#x7684;&#x64CD;&#x4F5C;&#xFF08;get&#xFF09;&#xFF0C;&#x8F49;&#x8B8A;&#x70BA;&#x57F7;&#x884C;&#x67D0;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x5F9E;&#x800C;&#x5BE6;&#x73FE;&#x5C6C;&#x6027;&#x7684;&#x934A;&#x5F0F;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> pipe = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>{
+    <span class="hljs-keyword">var</span> funcStack = [];
+    <span class="hljs-keyword">var</span> oproxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>({} , {
+      get : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pipeObject, fnName</span>) </span>{
+        <span class="hljs-keyword">if</span> (fnName === <span class="hljs-string">&apos;get&apos;</span>) {
+          <span class="hljs-keyword">return</span> funcStack.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, fn</span>) </span>{
+            <span class="hljs-keyword">return</span> fn(val);
+          },value);
+        }
+        funcStack.push(<span class="hljs-built_in">window</span>[fnName]);
+        <span class="hljs-keyword">return</span> oproxy;
+      }
+    });
+
+    <span class="hljs-keyword">return</span> oproxy;
+  }
+}());
+
+<span class="hljs-keyword">var</span> double = n =&gt; n * <span class="hljs-number">2</span>;
+<span class="hljs-keyword">var</span> pow    = n =&gt; n * n;
+<span class="hljs-keyword">var</span> reverseInt = n =&gt; n.toString().split(<span class="hljs-string">&quot;&quot;</span>).reverse().join(<span class="hljs-string">&quot;&quot;</span>) | <span class="hljs-number">0</span>;
+
+pipe(<span class="hljs-number">3</span>).double.pow.reverseInt.get; <span class="hljs-comment">// 63</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;code&#x8A2D;&#x7F6E; Proxy &#x4EE5;&#x5F8C;&#xFF0C;&#x9054;&#x5230;&#x4E86;&#x5C07;function name&#x93C8;&#x5F0F;&#x4F7F;&#x7528;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+<h4 id="set"><strong><font color="red">set()</font></strong></h4>
+<p>set&#x65B9;&#x6CD5;&#x7528;&#x4F86;interception&#x67D0;&#x500B;property&#x7684;&#x8CE6;&#x503C;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> handler = {
+  set: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj, prop, value</span>) </span>{
+    <span class="hljs-keyword">if</span> (prop === <span class="hljs-string">&apos;age&apos;</span>) {
+      <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">Number</span>.isInteger(value)) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&apos;The age is not an integer&apos;</span>);
+      }
+      <span class="hljs-keyword">if</span> (value &gt; <span class="hljs-number">200</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">RangeError</span>(<span class="hljs-string">&apos;The age seems invalid&apos;</span>);
+      }
+    }
+
+    <span class="hljs-comment">// &#x5C0D;&#x65BC;age&#x4EE5;&#x5916;&#x7684;property&#xFF0C;&#x76F4;&#x63A5;&#x4FDD;&#x5B58;</span>
+    obj[prop] = value;
+  }
+};
+
+<span class="hljs-keyword">let</span> person = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>({}, handler);
+
+person.age = <span class="hljs-number">100</span>;
+
+person.age <span class="hljs-comment">// 100</span>
+person.age = <span class="hljs-string">&apos;young&apos;</span> <span class="hljs-comment">// &apos;The age is not an integer&apos;</span>
+person.age = <span class="hljs-number">300</span> <span class="hljs-comment">// The age seems invalid</span>
+</code></pre>
+<p>&#x6709;&#x6642;&#xFF0C;&#x6211;&#x5011;&#x6703;&#x5728;object&#x4E0A;&#x9762;&#x8A2D;&#x7F6E;&#x5167;&#x90E8;&#x5C6C;&#x6027;&#xFF0C;property name&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x4F7F;&#x7528;&#x5E95;&#x7DDA;&#x958B;&#x982D;&#xFF0C;&#x8868;&#x793A;&#x9019;&#x4E9B;&#x5C6C;&#x6027;&#x4E0D;&#x61C9;&#x8A72;&#x88AB;&#x5916;&#x90E8;&#x4F7F;&#x7528;&#x3002;&#x7D50;&#x5408;get&#x548C;set&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x9632;&#x6B62;&#x9019;&#x4E9B;&#x5167;&#x90E8;&#x5C6C;&#x6027;&#x88AB;&#x5916;&#x90E8;&#x8B80;&#x5BEB;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> handler = {
+  get (target, key) {
+    func(key, <span class="hljs-string">&apos;get&apos;</span>);
+    <span class="hljs-keyword">return</span> target[key];
+  },
+  set (target, key, value) {
+    func(key, <span class="hljs-string">&apos;set&apos;</span>);
+    target[key] = value;
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  }
+};
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span>(<span class="hljs-params">key, action</span>) </span>{
+  <span class="hljs-keyword">if</span> (key[<span class="hljs-number">0</span>] === <span class="hljs-string">&apos;_&apos;</span>) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">`Invalid attempt to <span class="hljs-subst">${action}</span> private &quot;<span class="hljs-subst">${key}</span>&quot; property`</span>);
+  }
+}
+<span class="hljs-keyword">var</span> target = {};
+<span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+proxy._prop
+<span class="hljs-comment">// Error: Invalid attempt to get private &quot;_prop&quot; property</span>
+proxy._prop = <span class="hljs-string">&apos;c&apos;</span>
+<span class="hljs-comment">// Error: Invalid attempt to set private &quot;_prop&quot; property</span>
+</code></pre>
+<h4 id="apply"><strong><font color="red">apply()</font></strong></h4>
+<p>apply&#x65B9;&#x6CD5;&#x6514;&#x622A;&#x51FD;&#x6578;&#x7684;&#x8ABF;&#x7528;&#x3001;call&#x548C;apply&#x64CD;&#x4F5C;&#x3002;</p>
+<p>apply&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E09;&#x500B;&#x53C3;&#x6578;&#xFF0C;&#x5206;&#x5225;&#x662F;&#x76EE;&#x6A19;&#x5C0D;&#x8C61;&#x3001;&#x76EE;&#x6A19;&#x5C0D;&#x8C61;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x5C0D;&#x8C61;&#xFF08;this&#xFF09;&#x548C;&#x76EE;&#x6A19;&#x5C0D;&#x8C61;&#x7684;&#x53C3;&#x6578;&#x6578;&#x7D44;&#x3002; </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> handler = {
+  apply (target, ctx, args) {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Reflect</span>.apply(...arguments);
+  }
+};
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x500B;&#x4F8B;&#x5B50;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> target = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;I am the target&apos;</span>; };
+<span class="hljs-keyword">var</span> handler = {
+  apply: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;I am the proxy&apos;</span>;
+  }
+};
+
+<span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+
+p()
+<span class="hljs-comment">// &quot;I am the proxy&quot;</span>
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x53E6;&#x5916;&#x4E00;&#x500B;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> twice = {
+  apply (target, ctx, args) {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Reflect</span>.apply(...arguments) * <span class="hljs-number">2</span>;
+  }
+};
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span> (<span class="hljs-params">left, right</span>) </span>{
+  <span class="hljs-keyword">return</span> left + right;
+};
+<span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(sum, twice);
+proxy(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">// 6</span>
+proxy.call(<span class="hljs-literal">null</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>) <span class="hljs-comment">// 22</span>
+proxy.apply(<span class="hljs-literal">null</span>, [<span class="hljs-number">7</span>, <span class="hljs-number">8</span>]) <span class="hljs-comment">// 30</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;code&#x4E2D;&#xFF0C;&#x6BCF;&#x7576;&#x57F7;&#x884C;proxy function&#xFF08;&#x76F4;&#x63A5;&#x8ABF;&#x7528;&#x6216;call&#x548C;apply&#x8ABF;&#x7528;&#xFF09;&#xFF0C;&#x5C31;&#x6703;&#x88AB;apply&#x65B9;&#x6CD5;&#x6514;&#x622A;&#x3002;  </p>
+<h4 id="has"><strong><font color="red">has()</font></strong></h4>
+<p>has&#x65B9;&#x6CD5;&#x7528;&#x4F86;interception HasProperty&#x64CD;&#x4F5C;&#xFF0C;&#x5373;&#x5224;&#x65B7;object&#x662F;&#x5426;&#x5177;&#x6709;&#x67D0;&#x500B;property&#x6642;&#xFF0C;&#x9019;&#x500B;&#x65B9;&#x6CD5;&#x6703;&#x751F;&#x6548;&#x3002;&#x5178;&#x578B;&#x7684;&#x64CD;&#x4F5C;&#x5C31;&#x662F;in&#x904B;&#x7B97;&#x7B26;&#x3002; </p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4F7F;&#x7528;has&#x65B9;&#x6CD5;&#x96B1;&#x85CF;&#x67D0;&#x4E9B;&#x5C6C;&#x6027;&#xFF0C;&#x4E0D;&#x88AB;in&#x904B;&#x7B97;&#x7B26;&#x767C;&#x73FE;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> handler = {
+  has (target, key) {
+    <span class="hljs-keyword">if</span> (key[<span class="hljs-number">0</span>] === <span class="hljs-string">&apos;_&apos;</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">return</span> key <span class="hljs-keyword">in</span> target;
+  }
+};
+<span class="hljs-keyword">var</span> target = { _prop: <span class="hljs-string">&apos;foo&apos;</span>, prop: <span class="hljs-string">&apos;foo&apos;</span> };
+<span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+<span class="hljs-string">&apos;_prop&apos;</span> <span class="hljs-keyword">in</span> proxy <span class="hljs-comment">// false</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x539F;&#x5C0D;&#x50CF;&#x4E0D;&#x53EF;&#x914D;&#x7F6E;&#x6216;&#x8005;&#x7981;&#x6B62;&#x64F4;&#x5C55;&#xFF0C;&#x9019;&#x6642;has&#x6514;&#x622A;&#x6703;&#x5831;&#x932F;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = { a: <span class="hljs-number">10</span> };
+<span class="hljs-built_in">Object</span>.preventExtensions(obj);
+
+<span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(obj, {
+  has: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target, prop</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+});
+
+<span class="hljs-string">&apos;a&apos;</span> <span class="hljs-keyword">in</span> p <span class="hljs-comment">// TypeError is thrown</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;obj&#x5C0D;&#x8C61;&#x7981;&#x6B62;&#x64F4;&#x5C55;&#xFF0C;&#x7D50;&#x679C;&#x4F7F;&#x7528;has&#x6514;&#x622A;&#x5C31;&#x6703;&#x5831;&#x932F;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8AAA;&#xFF0C;&#x5982;&#x679C;&#x67D0;&#x500B;&#x5C6C;&#x6027;&#x4E0D;&#x53EF;&#x914D;&#x7F6E;&#xFF08;&#x6216;&#x8005;&#x76EE;&#x6A19;&#x5C0D;&#x50CF;&#x4E0D;&#x53EF;&#x64F4;&#x5C55;&#xFF09;&#xFF0C;&#x5247;has&#x65B9;&#x6CD5;&#x5C31;&#x4E0D;&#x5F97;&#x201C;&#x96B1;&#x85CF;&#x201D;&#xFF08;&#x5373;&#x8FD4;&#x56DE;false&#xFF09;&#x76EE;&#x6A19;&#x5C0D;&#x8C61;&#x7684;&#x8A72;&#x5C6C;&#x6027;&#x3002;  </p>
+<ul>
+<li>has&#x65B9;&#x6CD5;interception&#x7684;&#x662F;HasProperty&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;HasOwnProperty&#x64CD;&#x4F5C;&#xFF0C;&#x5373;has&#x65B9;&#x6CD5;&#x4E0D;&#x5224;&#x65B7;&#x4E00;&#x500B;&#x5C6C;&#x6027;&#x662F;object&#x81EA;&#x8EAB;&#x7684;property&#xFF0C;&#x9084;&#x662F;&#x7E7C;&#x627F;&#x7684;property&#x3002;  </li>
+</ul>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x96D6;&#x7136;for...in&#x5FAA;&#x74B0;&#x4E5F;&#x7528;&#x5230;&#x4E86;in&#x904B;&#x7B97;&#x7B26;&#xFF0C;&#x4F46;&#x662F;has interception&#x5C0D;for...in&#x5FAA;&#x74B0;&#x4E0D;&#x751F;&#x6548;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> stu1 = {name: <span class="hljs-string">&apos;&#x5F35;&#x4E09;&apos;</span>, score: <span class="hljs-number">59</span>};
+<span class="hljs-keyword">let</span> stu2 = {name: <span class="hljs-string">&apos;&#x674E;&#x56DB;&apos;</span>, score: <span class="hljs-number">99</span>};
+
+<span class="hljs-keyword">let</span> handler = {
+  has(target, prop) {
+    <span class="hljs-keyword">if</span> (prop === <span class="hljs-string">&apos;score&apos;</span> &amp;&amp; target[prop] &lt; <span class="hljs-number">60</span>) {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${target.name}</span> &#x4E0D;&#x53CA;&#x683C;`</span>);
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">return</span> prop <span class="hljs-keyword">in</span> target;
+  }
+}
+
+<span class="hljs-keyword">let</span> oproxy1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(stu1, handler);
+<span class="hljs-keyword">let</span> oproxy2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(stu2, handler);
+
+<span class="hljs-string">&apos;score&apos;</span> <span class="hljs-keyword">in</span> oproxy1
+<span class="hljs-comment">// &#x5F35;&#x4E09; &#x4E0D;&#x53CA;&#x683C;</span>
+<span class="hljs-comment">// false</span>
+
+<span class="hljs-string">&apos;score&apos;</span> <span class="hljs-keyword">in</span> oproxy2
+<span class="hljs-comment">// true</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> a <span class="hljs-keyword">in</span> oproxy1) {
+  <span class="hljs-built_in">console</span>.log(oproxy1[a]);
+}
+<span class="hljs-comment">// &#x5F35;&#x4E09;</span>
+<span class="hljs-comment">// 59</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> b <span class="hljs-keyword">in</span> oproxy2) {
+  <span class="hljs-built_in">console</span>.log(oproxy2[b]);
+}
+<span class="hljs-comment">// &#x674E;&#x56DB;</span>
+<span class="hljs-comment">// 99</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;has interception&#x53EA;&#x5C0D;in&#x5FAA;&#x74B0;&#x751F;&#x6548;&#xFF0C;&#x5C0D;for...in&#x5FAA;&#x74B0;&#x4E0D;&#x751F;&#x6548;&#xFF0C;&#x5C0E;&#x81F4;&#x4E0D;&#x7B26;&#x5408;&#x8981;&#x6C42;&#x7684;&#x5C6C;&#x6027;&#x6C92;&#x6709;&#x88AB;&#x6392;&#x9664;&#x5728;for...in&#x5FAA;&#x74B0;&#x4E4B;&#x5916;&#x3002;</p>
+<h4 id="constructor"><strong><font color="red">constructor()</font></strong></h4>
+<p>construct&#x65B9;&#x6CD5;&#x7528;&#x65BC;interception new&#x547D;&#x4EE4;&#xFF0C;&#x4E0B;&#x9762;&#x662F;interception object&#x7684;&#x5BEB;&#x6CD5;&#x3002;  </p>
+<p>construct&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x5169;&#x500B;&#x53C3;&#x6578;&#x3002;</p>
+<ul>
+<li>target: &#x76EE;&#x6A19;&#x5C0D;&#x8C61;</li>
+<li>args&#xFF1A;&#x69CB;&#x5EFA;&#x51FD;&#x6578;&#x7684;&#x53C3;&#x6578;&#x5C0D;&#x8C61;</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{}, {
+  construct: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target, args</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;called: &apos;</span> + args.join(<span class="hljs-string">&apos;, &apos;</span>));
+    <span class="hljs-keyword">return</span> { value: args[<span class="hljs-number">0</span>] * <span class="hljs-number">10</span> };
+  }
+});
+
+(<span class="hljs-keyword">new</span> p(<span class="hljs-number">1</span>)).value
+<span class="hljs-comment">// &quot;called: 1&quot;</span>
+<span class="hljs-comment">// 10</span>
+</code></pre>
+<p>construct&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x5FC5;&#x9808;&#x662F;&#x4E00;&#x500B;&#x5C0D;&#x8C61;&#xFF0C;&#x5426;&#x5247;&#x6703;&#x5831;&#x932F;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{}, {
+  construct: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target, argumentsList</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  }
+});
+
+<span class="hljs-keyword">new</span> p() <span class="hljs-comment">// Uncaught TypeError: &apos;construct&apos; on proxy: trap returned non-object (&apos;1&apos;)</span>
+</code></pre>
+<h4 id="deleteproperty"><strong><font color="red">deleteproperty()</font></strong></h4>
+<p>deleteProperty&#x65B9;&#x6CD5;&#x7528;&#x65BC;interception delete&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x9019;&#x500B;&#x65B9;&#x6CD5;&#x62CB;&#x51FA;&#x932F;&#x8AA4;&#x6216;&#x8005;&#x8FD4;&#x56DE;false&#xFF0C;&#x7576;&#x524D;&#x5C6C;&#x6027;&#x5C31;&#x7121;&#x6CD5;&#x88AB;delete&#x547D;&#x4EE4;&#x522A;&#x9664;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> handler = {
+  deleteProperty (target, prop) {
+    invariant(prop, <span class="hljs-string">&apos;delete&apos;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  }
+};
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">invariant</span> (<span class="hljs-params">prop, action</span>) </span>{
+  <span class="hljs-keyword">if</span> (prop[<span class="hljs-number">0</span>] === <span class="hljs-string">&apos;_&apos;</span>) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">`Invalid attempt to <span class="hljs-subst">${action}</span> private &quot;<span class="hljs-subst">${prop}</span>&quot; property`</span>);
+  }
+}
+
+<span class="hljs-keyword">var</span> target = { _prop: <span class="hljs-string">&apos;foo&apos;</span> };
+<span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+<span class="hljs-keyword">delete</span> proxy._prop
+<span class="hljs-comment">// Error: Invalid attempt to delete private &quot;_prop&quot; property</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;deleteProperty&#x65B9;&#x6CD5;&#x6514;&#x622A;&#x4E86;delete&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x522A;&#x9664;&#x7B2C;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x70BA;&#x4E0B;&#x5283;&#x7DDA;&#x7684;&#x5C6C;&#x6027;&#x6703;&#x5831;&#x932F;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x76EE;&#x6A19;&#x5C0D;&#x8C61;&#x81EA;&#x8EAB;&#x7684;&#x4E0D;&#x53EF;&#x914D;&#x7F6E;&#xFF08;configurable&#xFF09;&#x7684;&#x5C6C;&#x6027;&#xFF0C;&#x4E0D;&#x80FD;&#x88AB;deleteProperty&#x65B9;&#x6CD5;&#x522A;&#x9664;&#xFF0C;&#x5426;&#x5247;&#x5831;&#x932F;&#x3002;</p>
+<h4 id="defineproperty"><strong><font color="red">defineProperty()</font></strong></h4>
+<p>defineProperty&#x65B9;&#x6CD5;&#x6514;&#x622A;&#x4E86;Object.defineProperty&#x64CD;&#x4F5C;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> handler = {
+  defineProperty (target, key, descriptor) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+};
+<span class="hljs-keyword">var</span> target = {};
+<span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+proxy.foo = <span class="hljs-string">&apos;bar&apos;</span>
+<span class="hljs-comment">// TypeError: proxy defineProperty handler returned false for property &apos;&quot;foo&quot;&apos;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;defineProperty&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;false&#xFF0C;&#x5C0E;&#x81F4;&#x6DFB;&#x52A0;&#x65B0;&#x5C6C;&#x6027;&#x6703;&#x62CB;&#x51FA;&#x932F;&#x8AA4;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x76EE;&#x6A19;&#x5C0D;&#x50CF;&#x4E0D;&#x53EF;&#x64F4;&#x5C55;&#xFF08;extensible&#xFF09;&#xFF0C;&#x5247;defineProperty&#x4E0D;&#x80FD;&#x589E;&#x52A0;&#x76EE;&#x6A19;&#x5C0D;&#x50CF;&#x4E0A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5C6C;&#x6027;&#xFF0C;&#x5426;&#x5247;&#x6703;&#x5831;&#x932F;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x76EE;&#x6A19;&#x5C0D;&#x8C61;&#x7684;&#x67D0;&#x500B;&#x5C6C;&#x6027;&#x4E0D;&#x53EF;&#x5BEB;&#xFF08;writable&#xFF09;&#x6216;&#x4E0D;&#x53EF;&#x914D;&#x7F6E;&#xFF08;configurable&#xFF09;&#xFF0C;&#x5247;defineProperty&#x65B9;&#x6CD5;&#x4E0D;&#x5F97;&#x6539;&#x8B8A;&#x9019;&#x5169;&#x500B;&#x8A2D;&#x7F6E;&#x3002;</p>
+<h4 id="getownpropertydescriptor"><strong><font color="red">getOwnPropertyDescriptor()</font></strong></h4>
+<p>getOwnPropertyDescriptor&#x65B9;&#x6CD5;&#x6514;&#x622A;Object.getOwnPropertyDescriptor&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x500B;&#x5C6C;&#x6027;&#x63CF;&#x8FF0;&#x5C0D;&#x50CF;&#x6216;&#x8005;undefined&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> handler = {
+  getOwnPropertyDescriptor (target, key) {
+    <span class="hljs-keyword">if</span> (key[<span class="hljs-number">0</span>] === <span class="hljs-string">&apos;_&apos;</span>) {
+      <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.getOwnPropertyDescriptor(target, key);
+  }
+};
+<span class="hljs-keyword">var</span> target = { _foo: <span class="hljs-string">&apos;bar&apos;</span>, baz: <span class="hljs-string">&apos;tar&apos;</span> };
+<span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+<span class="hljs-built_in">Object</span>.getOwnPropertyDescriptor(proxy, <span class="hljs-string">&apos;wat&apos;</span>)
+<span class="hljs-comment">// undefined</span>
+<span class="hljs-built_in">Object</span>.getOwnPropertyDescriptor(proxy, <span class="hljs-string">&apos;_foo&apos;</span>)
+<span class="hljs-comment">// undefined</span>
+<span class="hljs-built_in">Object</span>.getOwnPropertyDescriptor(proxy, <span class="hljs-string">&apos;baz&apos;</span>)
+<span class="hljs-comment">// { value: &apos;tar&apos;, writable: true, enumerable: true, configurable: true }</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;handler.getOwnPropertyDescriptor&#x65B9;&#x6CD5;&#x5C0D;&#x65BC;&#x7B2C;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x70BA;&#x4E0B;&#x5283;&#x7DDA;&#x7684;&#x5C6C;&#x6027;&#x540D;&#x6703;&#x8FD4;&#x56DE;undefined&#x3002;</p>
+<h4 id="isextensible"><strong><font color="red">isExtensible()</font></strong></h4>
+<p>isExtensible&#x65B9;&#x6CD5;&#x6514;&#x622A;Object.isExtensible&#x64CD;&#x4F5C;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>({}, {
+  isExtensible: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;called&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  }
+});
+
+<span class="hljs-built_in">Object</span>.isExtensible(p)
+<span class="hljs-comment">// &quot;called&quot;</span>
+<span class="hljs-comment">// true</span>
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x8A72;&#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x8FD4;&#x56DE;&#x5E03;&#x723E;&#x503C;&#xFF0C;&#x5426;&#x5247;&#x8FD4;&#x56DE;&#x503C;&#x6703;&#x88AB;&#x81EA;&#x52D5;&#x8F49;&#x70BA;&#x5E03;&#x723E;&#x503C;&#x3002;</p>
+<p>&#x9019;&#x500B;&#x65B9;&#x6CD5;&#x6709;&#x4E00;&#x500B;&#x5F37;&#x9650;&#x5236;&#xFF0C;&#x5B83;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x5FC5;&#x9808;&#x8207;&#x76EE;&#x6A19;&#x5C0D;&#x8C61;&#x7684;isExtensible&#x5C6C;&#x6027;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#xFF0C;&#x5426;&#x5247;&#x5C31;&#x6703;&#x62CB;&#x51FA;&#x932F;&#x8AA4;&#x3002;</p>
+<h4 id="ownkeys"><strong><font color="red">ownKeys()</font></strong></h4>
+<p>ownKeys&#x65B9;&#x6CD5;&#x7528;&#x4F86;&#x6514;&#x622A;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#x3002;</p>
+<ul>
+<li>Object.getOwnPropertyNames()</li>
+<li>Object.getOwnPropertySymbols()</li>
+<li>Object.keys()</li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x662F;&#x6514;&#x622A;Object.keys()&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> target = {
+  a: <span class="hljs-number">1</span>,
+  b: <span class="hljs-number">2</span>,
+  c: <span class="hljs-number">3</span>
+};
+
+<span class="hljs-keyword">let</span> handler = {
+  ownKeys(target) {
+    <span class="hljs-keyword">return</span> [<span class="hljs-string">&apos;a&apos;</span>];
+  }
+};
+
+<span class="hljs-keyword">let</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+
+<span class="hljs-built_in">Object</span>.keys(proxy)
+<span class="hljs-comment">// [&apos;a&apos;]</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x6514;&#x622A;&#x4E86;&#x5C0D;&#x65BC;target&#x5C0D;&#x8C61;&#x7684;Object.keys()&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x8FD4;&#x56DE;a&#x3001;b&#x3001;c&#x4E09;&#x500B;&#x5C6C;&#x6027;&#x4E4B;&#x4E2D;&#x7684;a&#x5C6C;&#x6027;&#x3002;  </p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x662F;&#x6514;&#x622A;&#x7B2C;&#x4E00;&#x500B;&#x5B57;&#x7B26;&#x70BA;&#x4E0B;&#x5283;&#x7DDA;&#x7684;&#x5C6C;&#x6027;&#x540D;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> target = {
+  _bar: <span class="hljs-string">&apos;foo&apos;</span>,
+  _prop: <span class="hljs-string">&apos;bar&apos;</span>,
+  prop: <span class="hljs-string">&apos;baz&apos;</span>
+};
+
+<span class="hljs-keyword">let</span> handler = {
+  ownKeys (target) {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Reflect</span>.ownKeys(target).filter(key =&gt; key[<span class="hljs-number">0</span>] !== <span class="hljs-string">&apos;_&apos;</span>);
+  }
+};
+
+<span class="hljs-keyword">let</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">of</span> <span class="hljs-built_in">Object</span>.keys(proxy)) {
+  <span class="hljs-built_in">console</span>.log(target[key]);
+}
+<span class="hljs-comment">// &quot;baz&quot;</span>
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x4F7F;&#x7528;Object.keys&#x65B9;&#x6CD5;&#x6642;&#xFF0C;&#x6709;&#x4E09;&#x985E;&#x5C6C;&#x6027;&#x6703;&#x88AB;ownKeys&#x65B9;&#x6CD5;&#x81EA;&#x52D5;&#x904E;&#x6FFE;&#xFF0C;&#x4E0D;&#x6703;&#x8FD4;&#x56DE;&#x3002;</p>
+<ul>
+<li>&#x76EE;&#x6A19;object&#x4E0A;&#x4E0D;&#x5B58;&#x5728;&#x7684;property</li>
+<li>property name is Symbol value</li>
+<li>enumerable&#x7684;property&#x70BA;false</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> target = {
+  a: <span class="hljs-number">1</span>,
+  b: <span class="hljs-number">2</span>,
+  c: <span class="hljs-number">3</span>,
+  [<span class="hljs-built_in">Symbol</span>.for(<span class="hljs-string">&apos;secret&apos;</span>)]: <span class="hljs-string">&apos;4&apos;</span>,
+};
+
+<span class="hljs-built_in">Object</span>.defineProperty(target, <span class="hljs-string">&apos;key&apos;</span>, {
+  enumerable: <span class="hljs-literal">false</span>,
+  configurable: <span class="hljs-literal">true</span>,
+  writable: <span class="hljs-literal">true</span>,
+  value: <span class="hljs-string">&apos;static&apos;</span>
+});
+
+<span class="hljs-keyword">let</span> handler = {
+  ownKeys(target) {
+    <span class="hljs-keyword">return</span> [<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;d&apos;</span>, <span class="hljs-built_in">Symbol</span>.for(<span class="hljs-string">&apos;secret&apos;</span>), <span class="hljs-string">&apos;key&apos;</span>];
+  }
+};
+
+<span class="hljs-keyword">let</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+
+<span class="hljs-built_in">Object</span>.keys(proxy)
+<span class="hljs-comment">// [&apos;a&apos;]</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;ownKeys&#x65B9;&#x6CD5;&#x4E4B;&#x4E2D;&#xFF0C;&#x986F;&#x793A;&#x8FD4;&#x56DE;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5C6C;&#x6027;&#xFF08;d&#xFF09;&#x3001;Symbol&#x503C;&#xFF08;Symbol.for(&apos;secret&apos;)&#xFF09;&#x3001;&#x4E0D;&#x53EF;&#x904D;&#x6B77;&#x7684;&#x5C6C;&#x6027;&#xFF08;key&#xFF09;&#xFF0C;&#x7D50;&#x679C;&#x90FD;&#x88AB;&#x81EA;&#x52D5;&#x904E;&#x6FFE;&#x6389;&#x3002;  </p>
+<hr>
+<p>ownKeys&#x65B9;&#x6CD5;&#x9084;&#x53EF;&#x4EE5;&#x6514;&#x622A;Object.getOwnPropertyNames()&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>({}, {
+  ownKeys: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target</span>) </span>{
+    <span class="hljs-keyword">return</span> [<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>];
+  }
+});
+
+<span class="hljs-built_in">Object</span>.getOwnPropertyNames(p)
+<span class="hljs-comment">// [ &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ]</span>
+</code></pre>
+<p>ownKeys&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;array member&#xFF0C;&#x53EA;&#x80FD;&#x662F;string&#x6216;Symbol value&#x3002;&#x5982;&#x679C;&#x6709;&#x5176;&#x4ED6;&#x985E;&#x578B;&#x7684;&#x503C;&#xFF0C;&#x6216;&#x8005;&#x8FD4;&#x56DE;&#x7684;&#x6839;&#x672C;&#x4E0D;&#x662F;array&#xFF0C;&#x5C31;&#x6703;&#x5831;&#x932F;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = {};
+
+<span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(obj, {
+  ownKeys: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target</span>) </span>{
+    <span class="hljs-keyword">return</span> [<span class="hljs-number">123</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-literal">null</span>, {}, []];
+  }
+});
+
+<span class="hljs-built_in">Object</span>.getOwnPropertyNames(p)
+<span class="hljs-comment">// Uncaught TypeError: 123 is not a valid property name</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x76EE;&#x6A19;&#x5C0D;&#x8C61;&#x81EA;&#x8EAB;&#x5305;&#x542B;&#x4E0D;&#x53EF;&#x914D;&#x7F6E;&#x7684;&#x5C6C;&#x6027;&#xFF0C;&#x5247;&#x8A72;&#x5C6C;&#x6027;&#x5FC5;&#x9808;&#x88AB;ownKeys&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#xFF0C;&#x5426;&#x5247;&#x5831;&#x932F;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = {};
+<span class="hljs-built_in">Object</span>.defineProperty(obj, <span class="hljs-string">&apos;a&apos;</span>, {
+  configurable: <span class="hljs-literal">false</span>,
+  enumerable: <span class="hljs-literal">true</span>,
+  value: <span class="hljs-number">10</span> }
+);
+
+<span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(obj, {
+  ownKeys: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target</span>) </span>{
+    <span class="hljs-keyword">return</span> [<span class="hljs-string">&apos;b&apos;</span>];
+  }
+});
+
+<span class="hljs-built_in">Object</span>.getOwnPropertyNames(p)
+<span class="hljs-comment">// Uncaught TypeError: &apos;ownKeys&apos; on proxy: trap result did not include &apos;a&apos;</span>
+</code></pre>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x76EE;&#x6A19;&#x5C0D;&#x50CF;&#x662F;&#x4E0D;&#x53EF;&#x64F4;&#x5C55;&#x7684;&#xFF08;non-extensition&#xFF09;&#xFF0C;&#x9019;&#x6642;ownKeys&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x6578;&#x7D44;&#x4E4B;&#x4E2D;&#xFF0C;&#x5FC5;&#x9808;&#x5305;&#x542B;&#x539F;object&#x7684;&#x6240;&#x6709;property&#xFF0C;&#x4E14;&#x4E0D;&#x80FD;&#x5305;&#x542B;&#x591A;&#x9918;&#x7684;property&#xFF0C;&#x5426;&#x5247;&#x5831;&#x932F;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> obj = {
+  a: <span class="hljs-number">1</span>
+};
+
+<span class="hljs-built_in">Object</span>.preventExtensions(obj);
+
+<span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(obj, {
+  ownKeys: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target</span>) </span>{
+    <span class="hljs-keyword">return</span> [<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>];
+  }
+});
+
+<span class="hljs-built_in">Object</span>.getOwnPropertyNames(p)
+<span class="hljs-comment">// Uncaught TypeError: &apos;ownKeys&apos; on proxy: trap returned extra keys but proxy target is non-extensible</span>
+</code></pre>
+<h4 id="preventextensions"><strong><font color="red">preventExtensions()</font></strong></h4>
+<p>preventExtensions&#x65B9;&#x6CD5;&#x6514;&#x622A;Object.preventExtensions()&#x3002;&#x8A72;&#x65B9;&#x6CD5;&#x5FC5;&#x9808;&#x8FD4;&#x56DE;&#x4E00;&#x500B;&#x5E03;&#x723E;&#x503C;&#xFF0C;&#x5426;&#x5247;&#x6703;&#x88AB;&#x81EA;&#x52D5;&#x8F49;&#x70BA;&#x5E03;&#x723E;&#x503C;&#x3002;</p>
+<p>&#x9019;&#x500B;&#x65B9;&#x6CD5;&#x6709;&#x4E00;&#x500B;&#x9650;&#x5236;&#xFF0C;&#x53EA;&#x6709;&#x76EE;&#x6A19;&#x5C0D;&#x50CF;&#x4E0D;&#x53EF;&#x64F4;&#x5C55;&#x6642;&#xFF08;&#x5373;Object.isExtensible(proxy)&#x70BA;false&#xFF09;&#xFF0C;proxy.preventExtensions&#x624D;&#x80FD;&#x8FD4;&#x56DE;true&#xFF0C;&#x5426;&#x5247;&#x6703;&#x5831;&#x932F;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>({}, {
+  preventExtensions: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  }
+});
+
+<span class="hljs-built_in">Object</span>.preventExtensions(p) <span class="hljs-comment">// &#x62A5;&#x9519;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;proxy.preventExtensions&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;true&#xFF0C;&#x4F46;&#x9019;&#x6642;Object.isExtensible(proxy)&#x6703;&#x8FD4;&#x56DE;true&#xFF0C;&#x56E0;&#x6B64;&#x5831;&#x932F;&#x3002;</p>
+<p>&#x70BA;&#x4E86;&#x9632;&#x6B62;&#x51FA;&#x73FE;&#x9019;&#x500B;&#x554F;&#x984C;&#xFF0C;&#x901A;&#x5E38;&#x8981;&#x5728;proxy.preventExtensions&#x65B9;&#x6CD5;&#x88E1;&#x9762;&#xFF0C;&#x8ABF;&#x7528;&#x4E00;&#x6B21;Object.preventExtensions&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>({}, {
+  preventExtensions: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">target</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;called&apos;</span>);
+    <span class="hljs-built_in">Object</span>.preventExtensions(target);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  }
+});
+
+<span class="hljs-built_in">Object</span>.preventExtensions(p)
+<span class="hljs-comment">// &quot;called&quot;</span>
+<span class="hljs-comment">// true</span>
+</code></pre>
+<h4 id="setprototypeof"><strong><font color="red">setPrototypeOf()</font></strong></h4>
+<p>setPrototypeOf&#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x7528;&#x4F86;&#x6514;&#x622A;Object.setPrototypeOf&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x500B;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> handler = {
+  setPrototypeOf (target, proto) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">&apos;Changing the prototype is forbidden&apos;</span>);
+  }
+};
+<span class="hljs-keyword">var</span> proto = {};
+<span class="hljs-keyword">var</span> target = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{};
+<span class="hljs-keyword">var</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Proxy</span>(target, handler);
+<span class="hljs-built_in">Object</span>.setPrototypeOf(proxy, proto);
+<span class="hljs-comment">// Error: Changing the prototype is forbidden</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;&#x53EA;&#x8981;&#x4FEE;&#x6539;target&#x7684;&#x539F;&#x578B;&#x5C0D;&#x8C61;&#xFF0C;&#x5C31;&#x6703;&#x5831;&#x932F;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x8A72;&#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x8FD4;&#x56DE;&#x5E03;&#x723E;&#x503C;&#xFF0C;&#x5426;&#x5247;&#x6703;&#x88AB;&#x81EA;&#x52D5;&#x8F49;&#x70BA;&#x5E03;&#x723E;&#x503C;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x76EE;&#x6A19;&#x5C0D;&#x50CF;&#x4E0D;&#x53EF;&#x64F4;&#x5C55;&#xFF08;extensible&#xFF09;&#xFF0C;setPrototypeOf&#x65B9;&#x6CD5;&#x4E0D;&#x5F97;&#x6539;&#x8B8A;&#x76EE;&#x6A19;&#x5C0D;&#x8C61;&#x7684;&#x539F;&#x578B;&#x3002;</p>
+<hr>
+<h2 id="proxyrevocable"><strong>Proxy.revocable()</strong></h2>
+<p>Proxy.revocable&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x500B;&#x53EF;&#x53D6;&#x6D88;&#x7684;Proxy &#x5BE6;&#x4F8B;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> target = {};
+<span class="hljs-keyword">let</span> handler = {};
+
+<span class="hljs-keyword">let</span> {proxy, revoke} = <span class="hljs-built_in">Proxy</span>.revocable(target, handler);
+
+proxy.foo = <span class="hljs-number">123</span>;
+proxy.foo <span class="hljs-comment">// 123</span>
+
+revoke();
+proxy.foo <span class="hljs-comment">// TypeError: Revoked</span>
+</code></pre>
+<p>Proxy.revocable&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x500B;&#x5C0D;&#x8C61;&#xFF0C;&#x8A72;&#x5C0D;&#x8C61;&#x7684;proxy&#x5C6C;&#x6027;&#x662F;Proxy&#x5BE6;&#x4F8B;&#xFF0C;revoke&#x5C6C;&#x6027;&#x662F;&#x4E00;&#x500B;&#x51FD;&#x6578;&#xFF0C;&#x53EF;&#x4EE5;&#x53D6;&#x6D88;Proxy&#x5BE6;&#x4F8B;&#x3002;&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;&#x7576;&#x57F7;&#x884C;revoke&#x51FD;&#x6578;&#x4E4B;&#x5F8C;&#xFF0C;&#x518D;&#x8A2A;&#x554F;Proxy&#x5BE6;&#x4F8B;&#xFF0C;&#x5C31;&#x6703;&#x62CB;&#x51FA;&#x4E00;&#x500B;&#x932F;&#x8AA4;&#x3002;</p>
+<p>Proxy.revocable&#x7684;&#x4E00;&#x500B;&#x4F7F;&#x7528;&#x5834;&#x666F;&#x662F;&#xFF0C;&#x76EE;&#x6A19;&#x5C0D;&#x50CF;&#x4E0D;&#x5141;&#x8A31;&#x76F4;&#x63A5;&#x8A2A;&#x554F;&#xFF0C;&#x5FC5;&#x9808;&#x901A;&#x904E;&#x4EE3;&#x7406;&#x8A2A;&#x554F;&#xFF0C;&#x4E00;&#x65E6;&#x8A2A;&#x554F;&#x7D50;&#x675F;&#xFF0C;&#x5C31;&#x6536;&#x56DE;&#x4EE3;&#x7406;&#x6B0A;&#xFF0C;&#x4E0D;&#x5141;&#x8A31;&#x518D;&#x6B21;&#x8A2A;&#x554F;&#x3002;  </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="setmap.html" class="navigation navigation-prev " aria-label="Previous page: 2.set&map">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="reflect.html" class="navigation navigation-next " aria-label="Next page: 4.reflect">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.Proxy","level":"1.4","depth":1,"next":{"title":"4.reflect","level":"1.5","depth":1,"path":"source/reflect.md","ref":"source/reflect.md","articles":[]},"previous":{"title":"2.set&map","level":"1.3","depth":1,"path":"source/setmap.md","ref":"source/setmap.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"source/proxy.md","mtime":"2017-02-07T02:07:10.295Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-07T06:45:21.732Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

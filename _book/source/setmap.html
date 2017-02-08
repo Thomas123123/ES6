@@ -1,0 +1,725 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.set&map · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="proxy.html" />
+    
+    
+    <link rel="prev" href="symbol.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="symbol.html">
+            
+                <a href="symbol.html">
+            
+                    
+                    1.Symbol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="setmap.html">
+            
+                <a href="setmap.html">
+            
+                    
+                    2.set&map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="proxy.html">
+            
+                <a href="proxy.html">
+            
+                    
+                    3.Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="reflect.html">
+            
+                <a href="reflect.html">
+            
+                    
+                    4.reflect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="iterator.html">
+            
+                <a href="iterator.html">
+            
+                    
+                    5.Iterator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="generator.html">
+            
+                <a href="generator.html">
+            
+                    
+                    6.Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="promise.html">
+            
+                <a href="promise.html">
+            
+                    
+                    7.Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="async.html">
+            
+                <a href="async.html">
+            
+                    
+                    8.異步操作&Async函數
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="class.html">
+            
+                <a href="class.html">
+            
+                    
+                    9.Class
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="decorator.html">
+            
+                <a href="decorator.html">
+            
+                    
+                    10.Decorator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="module.html">
+            
+                <a href="module.html">
+            
+                    
+                    11.Module
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.set&map</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="2setmap">2.set&amp;map</h1>
+<hr>
+<blockquote>
+<p>ES6&#x63D0;&#x4F9B;&#x4E86;&#x65B0;&#x7684;&#x6578;&#x64DA;&#x7D50;&#x69CB;Set&#x3002;&#x5B83;&#x985E;&#x4F3C;&#x65BC;array&#xFF0C;&#x4F46;&#x662F;&#x6210;&#x54E1;&#x7684;&#x503C;&#x90FD;&#x662F;&#x552F;&#x4E00;&#x7684;&#xFF0C;&#x6C92;&#x6709;&#x91CD;&#x8907;&#x7684;&#x503C;&#x3002;</p>
+</blockquote>
+<p>Set&#x672C;&#x8EAB;&#x662F;&#x4E00;&#x500B;&#x69CB;&#x9020;&#x51FD;&#x6578;&#xFF0C;&#x7528;&#x4F86;&#x751F;&#x6210;Set&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>()
+</code></pre>
+<p><strong>Set&#x7D50;&#x69CB;&#x4E0D;&#x6703;&#x6DFB;&#x52A0;&#x91CD;&#x8907;&#x7684;&#x503C;</strong>
+Set function&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x500B;array&#xFF08;&#x6216;&#x985E;&#x4F3C;array&#x7684;object&#xFF09;&#x4F5C;&#x70BA;argument&#xFF0C;&#x7528;&#x4F86;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x4F8B;&#x4E00;</span>
+<span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>]);
+[...set]
+<span class="hljs-comment">// [1, 2, 3, 4]</span>
+
+<span class="hljs-comment">// &#x4F8B;&#x4E8C;</span>
+<span class="hljs-keyword">var</span> items = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>]);
+items.size <span class="hljs-comment">// 5</span>
+
+<span class="hljs-comment">// &#x4F8B;&#x4E09;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">divs</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> [...document.querySelectorAll(<span class="hljs-string">&apos;div&apos;</span>)];
+}
+
+<span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(divs());
+set.size
+</code></pre>
+<p>set&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4F86;&#x7576;&#x53BB;&#x9664;&#x91CD;&#x8907;&#x6578;&#x503C;&#x7684;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> array = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
+
+[...new <span class="hljs-built_in">Set</span>(array)] 
+<span class="hljs-comment">//[1, 2, 3, 4, 5]</span>
+</code></pre>
+<p>Set&#x52A0;&#x5165;value&#x7684;&#x6642;&#x5019;&#xFF0C;&#x4E0D;&#x6703;&#x767C;&#x751F;&#x985E;&#x578B;&#x8F49;&#x63DB;&#xFF0C;&#x6240;&#x4EE5;1&#x548C;&quot;1&quot;&#x662F;&#x5169;&#x500B;&#x4E0D;&#x540C;&#x7684;value&#x3002;Set&#x5167;&#x90E8;&#x5224;&#x65B7;&#x5169;&#x500B;&#x503C;&#x662F;&#x5426;&#x4E0D;&#x540C;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x7B97;&#x6CD5;&#x53EB;&#x505A;&#x201C;Same-value equality&#x201D;&#xFF0C;&#x5B83;&#x985E;&#x4F3C;&#x65BC;&#x7CBE;&#x78BA;&#x76F8;&#x7B49;&#x904B;&#x7B97;&#x7B26;&#xFF08;===&#xFF09;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
+set.add(<span class="hljs-number">1</span>);
+set.add(<span class="hljs-number">2</span>);
+set.add(<span class="hljs-string">&apos;1&apos;</span>);
+set.add(<span class="hljs-string">&apos;2&apos;</span>);
+
+set ;
+<span class="hljs-comment">// [1,2,&apos;1&apos;,&apos;2&apos;]</span>
+</code></pre>
+<p>&#x5169;&#x500B;object&#x7E3D;&#x662F;&#x4E0D;&#x76F8;&#x7B49;&#x7684;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
+
+set.add({});
+set.size <span class="hljs-comment">// 1</span>
+
+set.add({});
+set.size <span class="hljs-comment">// 2</span>
+</code></pre>
+<h3 id="set-instance-method"><strong>Set instance method</strong></h3>
+<p><strong>Set instance method&#x5206;&#x70BA;&#x5169;&#x5927;&#x985E;&#xFF1A;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#xFF08;&#x7528;&#x65BC;&#x64CD;&#x4F5C;&#x6578;&#x64DA;&#xFF09;&#x548C;&#x904D;&#x6B77;&#x65B9;&#x6CD5;&#xFF08;&#x7528;&#x65BC;&#x904D;&#x6B77;&#x6210;&#x54E1;&#xFF09;&#x3002;</strong></p>
+<p>&#x4E0B;&#x9762;&#x5148;&#x4ECB;&#x7D39;&#x56DB;&#x500B;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#x3002;  </p>
+<p><font color="red">add(value)</font>&#xFF1A;&#x6DFB;&#x52A0;&#x67D0;&#x500B;value&#x3002;</p>
+<p><font color="red">delete(value)</font>&#xFF1A;&#x522A;&#x9664;&#x67D0;&#x500B;value&#xFF0C;return a boolean&#xFF0C;&#x8868;&#x793A;&#x522A;&#x9664;&#x662F;&#x5426;&#x6210;&#x529F;&#x3002;</p>
+<p><font color="red">has(value)</font>&#xFF1A;return a boolean&#xFF0C;&#x8868;&#x793A;&#x8A72;&#x503C;&#x662F;&#x5426;&#x70BA;Set&#x7684;&#x6210;&#x54E1;&#x3002;</p>
+<p><font color="red">clear()</font>&#xFF1A;&#x6E05;&#x9664;&#x6240;&#x6709;&#x6210;&#x54E1;&#x3002;</p>
+<p>Array.from&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5C07;Set&#x7D50;&#x69CB;&#x8F49;&#x70BA;&#x6578;&#x7D44;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dedupe</span>(<span class="hljs-params">array</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Array</span>.from(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(array));
+}
+
+dedupe([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]) <span class="hljs-comment">// [1, 2, 3]</span>
+</code></pre>
+<p>&#x518D;&#x4F86;&#x4ECB;&#x7D39;&#x56DB;&#x500B;&#x904D;&#x6B77;&#x65B9;&#x6CD5;&#x3002;  </p>
+<p><font color="red">keys()</font>&#xFF1A;&#x8FD4;&#x56DE;&#x9375;&#x540D;&#x7684;&#x904D;&#x6B77;&#x5668;</p>
+<p><font color="red">values()</font>&#xFF1A;&#x8FD4;&#x56DE;&#x9375;&#x503C;&#x7684;&#x904D;&#x6B77;&#x5668;</p>
+<p><font color="red">entries()</font>&#xFF1A;&#x8FD4;&#x56DE;&#x9375;&#x503C;&#x5C0D;&#x7684;&#x904D;&#x6B77;&#x5668;</p>
+<p><font color="red">forEach()</font>&#xFF1A;&#x4F7F;&#x7528;&#x56DE;&#x8ABF;&#x51FD;&#x6578;&#x904D;&#x6B77;&#x6BCF;&#x500B;&#x6210;&#x54E1;</p>
+<p><strong>&#xFF08;1&#xFF09;keys()&#xFF0C;values()&#xFF0C;entries()</strong></p>
+<p>keys&#x65B9;&#x6CD5;&#x3001;values&#x65B9;&#x6CD5;&#x3001;entries&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x90FD;&#x662F;iterator object&#x3002;&#x7531;&#x65BC;Set&#x7D50;&#x69CB;&#x6C92;&#x6709;key name&#xFF0C;&#x53EA;&#x6709;key value&#xFF08;&#x6216;&#x8005;&#x8AAA;key name&#x548C;key value&#x662F;&#x540C;&#x4E00;&#x500B;&#x503C;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;keys&#x65B9;&#x6CD5;&#x548C;values&#x65B9;&#x6CD5;&#x7684;&#x884C;&#x70BA;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-string">&apos;green&apos;</span>, <span class="hljs-string">&apos;blue&apos;</span>]);
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> set.keys()) {
+  <span class="hljs-built_in">console</span>.log(item);
+}
+<span class="hljs-comment">// red</span>
+<span class="hljs-comment">// green</span>
+<span class="hljs-comment">// blue</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> set.values()) {
+  <span class="hljs-built_in">console</span>.log(item);
+}
+<span class="hljs-comment">// red</span>
+<span class="hljs-comment">// green</span>
+<span class="hljs-comment">// blue</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> set.entries()) {
+  <span class="hljs-built_in">console</span>.log(item);
+}
+<span class="hljs-comment">// [&quot;red&quot;, &quot;red&quot;]</span>
+<span class="hljs-comment">// [&quot;green&quot;, &quot;green&quot;]</span>
+<span class="hljs-comment">// [&quot;blue&quot;, &quot;blue&quot;]</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;code&#x4E2D;&#xFF0C;entries&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;iterator&#xFF0C;&#x540C;&#x6642;&#x5305;&#x62EC;key name&#x548C;key value&#xFF0C;&#x6240;&#x4EE5;&#x6BCF;&#x6B21;&#x8F38;&#x51FA;&#x4E00;&#x500B;array&#xFF0C;&#x5B83;&#x7684;&#x5169;&#x500B;&#x6210;&#x54E1;&#x5B8C;&#x5168;&#x76F8;&#x7B49;&#x3002;  </p>
+<p><strong>&#xFF08;2&#xFF09;forEach()</strong></p>
+<p>Set&#x7D50;&#x69CB;&#x7684;&#x5BE6;&#x4F8B;&#x7684;forEach&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x65BC;&#x5C0D;&#x6BCF;&#x500B;&#x6210;&#x54E1;&#x57F7;&#x884C;&#x67D0;&#x7A2E;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
+set.forEach((value) =&gt; <span class="hljs-built_in">console</span>.log(value * <span class="hljs-number">2</span>) )
+<span class="hljs-comment">// 2</span>
+<span class="hljs-comment">// 4</span>
+<span class="hljs-comment">// 6</span>
+</code></pre>
+<p><strong>&#xFF08;3&#xFF09;&#x904D;&#x6B77;&#x7684;&#x61C9;&#x7528;</strong></p>
+<p>&#x64F4;&#x5C55;&#x904B;&#x7B97;&#x7B26;&#xFF08;...&#xFF09;&#x5167;&#x90E8;&#x4F7F;&#x7528;for...of&#x5FAA;&#x74B0;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x65BC;Set&#x7D50;&#x69CB;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-string">&apos;green&apos;</span>, <span class="hljs-string">&apos;blue&apos;</span>]);
+<span class="hljs-keyword">let</span> arr = [...set];
+<span class="hljs-comment">// [&apos;red&apos;, &apos;green&apos;, &apos;blue&apos;]</span>
+</code></pre>
+<p>&#x6578;&#x7D44;&#x7684;map&#x548C;filter&#x65B9;&#x6CD5;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x65BC;Set&#x4E86;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
+set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([...set].map(x =&gt; x * <span class="hljs-number">2</span>));
+<span class="hljs-comment">// Set&#xFF1A;{2, 4, 6}</span>
+
+<span class="hljs-keyword">let</span> set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]);
+set = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([...set].filter(x =&gt; (x % <span class="hljs-number">2</span>) == <span class="hljs-number">0</span>));
+<span class="hljs-comment">// Set&#xFF1A;{2, 4}</span>
+</code></pre>
+<p>&#x56E0;&#x6B64;&#x4F7F;&#x7528;Set&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x5BE6;&#x73FE;&#x4E26;&#x96C6;&#xFF08;Union&#xFF09;&#x3001;&#x4EA4;&#x96C6;&#xFF08;Intersect&#xFF09;&#x548C;&#x5DEE;&#x96C6;&#xFF08;Difference&#xFF09;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> a = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
+<span class="hljs-keyword">let</span> b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>]);
+
+<span class="hljs-comment">// union</span>
+<span class="hljs-keyword">let</span> union = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([...a, ...b]);
+<span class="hljs-comment">// Set {1, 2, 3, 4}</span>
+
+<span class="hljs-comment">// intersect</span>
+<span class="hljs-keyword">let</span> intersect = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([...a].filter(x =&gt; b.has(x)));
+<span class="hljs-comment">// set {2, 3}</span>
+
+<span class="hljs-comment">// difference</span>
+<span class="hljs-keyword">let</span> difference = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([...a].filter(x =&gt; !b.has(x)));
+<span class="hljs-comment">// Set {1}</span>
+</code></pre>
+<hr>
+<h1 id="map"><strong>Map</strong></h1>
+<p>JavaScript&#x7684;Object&#xFF0C;&#x672C;&#x8CEA;&#x4E0A;&#x662F;&#x9375;&#x503C;&#x5C0D;&#x7684;&#x96C6;&#x5408;&#xFF08;Hash&#x7D50;&#x69CB;&#xFF09;&#xFF0C;&#x4F46;&#x662F;&#x50B3;&#x7D71;&#x4E0A;&#x53EA;&#x80FD;&#x7528;string&#x7576;&#x4F5C;key name&#x3002;&#x9019;&#x7D66;&#x5B83;&#x7684;&#x4F7F;&#x7528;&#x5E36;&#x4F86;&#x4E86;&#x5F88;&#x5927;&#x7684;&#x9650;&#x5236;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> data = {};
+<span class="hljs-keyword">var</span> element = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;myDiv&apos;</span>);
+
+data[element] = <span class="hljs-string">&apos;metadata&apos;</span>;
+data[<span class="hljs-string">&apos;[object HTMLDivElement]&apos;</span>] <span class="hljs-comment">// &quot;metadata&quot;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;code&#x662F;&#x5C07;&#x4E00;&#x500B;DOM node&#x4F5C;&#x70BA;object data&#x7684;key name&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x65BC;object&#x53EA;&#x63A5;&#x53D7;string&#x4F5C;&#x70BA;key name&#xFF0C;&#x6240;&#x4EE5;element&#x88AB;&#x81EA;&#x52D5;&#x8F49;&#x70BA;string[object HTMLDivElement]  </p>
+<p>ES6&#x63D0;&#x4F9B;&#x4E86;Map&#x6578;&#x64DA;&#x7D50;&#x69CB;&#x3002;&#x5B83;&#x985E;&#x4F3C;&#x65BC;object&#x3002;
+Object&#x7D50;&#x69CB;&#x63D0;&#x4F9B;&#x4E86;&#x201C;string&#x2014;value&#x201D;&#x7684;mapping&#xFF0C;Map&#x7D50;&#x69CB;&#x63D0;&#x4F9B;&#x4E86;&#x201C;value&#x2014;value&#x201D;&#x7684;mapping&#xFF0C;&#x662F;&#x4E00;&#x7A2E;&#x66F4;&#x5B8C;&#x5584;&#x7684;Hash&#x7D50;&#x69CB;instance&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> m = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+<span class="hljs-keyword">var</span> o = {p: <span class="hljs-string">&apos;Hello World&apos;</span>};
+
+m.set(o, <span class="hljs-string">&apos;content&apos;</span>)
+m.get(o) <span class="hljs-comment">// &quot;content&quot;</span>
+
+m.has(o) <span class="hljs-comment">// true</span>
+m.delete(o) <span class="hljs-comment">// true</span>
+m.has(o) <span class="hljs-comment">// false</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;code&#x4F7F;&#x7528;set&#x65B9;&#x6CD5;&#xFF0C;&#x5C07;object o&#x7576;&#x4F5C;m&#x7684;&#x4E00;&#x500B;key name&#xFF0C;&#x7136;&#x5F8C;&#x53C8;&#x4F7F;&#x7528;get&#x65B9;&#x6CD5;&#x8B80;&#x53D6;&#x9019;&#x500B;key name&#xFF0C;&#x63A5;&#x8457;&#x4F7F;&#x7528;delete&#x65B9;&#x6CD5;&#x522A;&#x9664;&#x4E86;&#x9019;&#x500B;key name&#x3002;</p>
+<ul>
+<li>&#x82E5;argument&#x70BA;array,&#x5247;&#x53EF;&#x4EE5;&#x5229;&#x7528;foreach iterator&#x5C07;array&#x904D;&#x6B77;&#x9032;&#x53BB;map&#x88E1;</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> items = [
+  [<span class="hljs-string">&apos;name&apos;</span>, <span class="hljs-string">&apos;thomas&apos;</span>],
+  [<span class="hljs-string">&apos;title&apos;</span>, <span class="hljs-string">&apos;javascript&apos;</span>]
+];
+<span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+items.forEach(([key, value]) =&gt; map.set(key, value));
+</code></pre>
+<p>&#x5982;&#x679C;&#x5C0D;&#x540C;&#x4E00;&#x500B;&#x9375;&#x591A;&#x6B21;&#x8CE6;&#x503C;&#xFF0C;&#x5F8C;&#x9762;&#x7684;&#x503C;&#x5C07;&#x8986;&#x84CB;&#x524D;&#x9762;&#x7684;&#x503C;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+
+map
+.set(<span class="hljs-number">1</span>, <span class="hljs-string">&apos;aaa&apos;</span>)
+.set(<span class="hljs-number">1</span>, <span class="hljs-string">&apos;bbb&apos;</span>);
+
+map.get(<span class="hljs-number">1</span>) <span class="hljs-comment">// &quot;bbb&quot;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x8B80;&#x53D6;&#x4E00;&#x500B;&#x672A;&#x77E5;&#x7684;&#x9375;&#xFF0C;&#x5247;&#x8FD4;&#x56DE;undefined&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>().get(<span class="hljs-string">&apos;aaa&apos;</span>)
+<span class="hljs-comment">// undefined</span>
+</code></pre>
+<p>&#x5982;&#x679C;Map&#x7684;key name&#x662F;&#x4E00;&#x500B;primitive value&#xFF08;number&#x3001;string&#x3001;boolean&#xFF09;&#xFF0C;&#x5247;&#x53EA;&#x8981;&#x5169;&#x500B;&#x503C;&#x56B4;&#x683C;&#x76F8;&#x7B49;(===)&#xFF0C;Map&#x5C07;&#x5176;&#x8996;&#x70BA;&#x4E00;&#x500B;key name&#xFF0C;&#x5305;&#x62EC;0&#x548C;-0&#x3002;  </p>
+<ul>
+<li><strong>&#x96D6;&#x7136;NaN&#x4E0D;&#x56B4;&#x683C;&#x76F8;&#x7B49;&#x65BC;&#x81EA;&#x8EAB;&#xFF0C;&#x4F46;Map&#x5C07;&#x5176;&#x8996;&#x70BA;&#x540C;&#x4E00;&#x500B;key name&#x3002;</strong></li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+
+map.set(<span class="hljs-literal">NaN</span>, <span class="hljs-number">123</span>);
+map.get(<span class="hljs-literal">NaN</span>) <span class="hljs-comment">// 123</span>
+
+map.set(<span class="hljs-number">-0</span>, <span class="hljs-number">123</span>);
+map.get(+<span class="hljs-number">0</span>) <span class="hljs-comment">// 123</span>
+</code></pre>
+<hr>
+<h3 id="instance-property-and-method"><strong>instance property and method</strong></h3>
+<p>method</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+
+map.set(key name, key value)  <span class="hljs-comment">// &#x8A2D;&#x5B9A;name&#x8DDF;value</span>
+map.get(key name)    <span class="hljs-comment">// &#x53D6;&#x5F97;key value</span>
+map.has(key name)    <span class="hljs-comment">// &#x5224;&#x65B7;key name&#x662F;&#x5426;&#x5B58;&#x5728;</span>
+map.delete(key name) <span class="hljs-comment">// &#x522A;&#x9664;&#x6307;&#x5B9A;key name</span>
+map.clear() <span class="hljs-comment">// &#x522A;&#x9664;&#x5168;&#x90E8;key name</span>
+</code></pre>
+<p>&#x904D;&#x6B77;&#x65B9;&#x6CD5;&#x8DDF;set&#x4E00;&#x6A23;</p>
+<p><font color="red">keys()</font>&#xFF1A;return key name&#x7684;&#x904D;&#x6B77;&#x5668;</p>
+<p><font color="red">values()</font>&#xFF1A;return key value&#x7684;&#x904D;&#x6B77;&#x5668;</p>
+<p><font color="red">entries()</font>&#xFF1A;return [key name,key value]&#x7684;&#x904D;&#x6B77;&#x5668;</p>
+<p><font color="red">forEach()</font>&#xFF1A;&#x904D;&#x6B77;Map&#x7684;&#x6240;&#x6709;&#x6210;&#x54E1;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([
+  [<span class="hljs-string">&apos;F&apos;</span>, <span class="hljs-string">&apos;no&apos;</span>],
+  [<span class="hljs-string">&apos;T&apos;</span>,  <span class="hljs-string">&apos;yes&apos;</span>],
+]);
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">of</span> map.keys()) {
+  <span class="hljs-built_in">console</span>.log(key);
+}
+<span class="hljs-comment">// &quot;F&quot;</span>
+<span class="hljs-comment">// &quot;T&quot;</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> value <span class="hljs-keyword">of</span> map.values()) {
+  <span class="hljs-built_in">console</span>.log(value);
+}
+<span class="hljs-comment">// &quot;no&quot;</span>
+<span class="hljs-comment">// &quot;yes&quot;</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> map.entries()) {
+  <span class="hljs-built_in">console</span>.log(item[<span class="hljs-number">0</span>], item[<span class="hljs-number">1</span>]);
+}
+<span class="hljs-comment">// &quot;F&quot; &quot;no&quot;</span>
+<span class="hljs-comment">// &quot;T&quot; &quot;yes&quot;</span>
+</code></pre>
+<p>Map&#x7D50;&#x69CB;&#x8F49;&#x70BA;&#x6578;&#x7D44;&#x7D50;&#x69CB;&#xFF0C;&#x6BD4;&#x8F03;&#x5FEB;&#x901F;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x7D50;&#x5408;&#x4F7F;&#x7528;&#x64F4;&#x5C55;&#x904B;&#x7B97;&#x7B26;&#xFF08;...&#xFF09;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([
+  [<span class="hljs-number">1</span>, <span class="hljs-string">&apos;one&apos;</span>],
+  [<span class="hljs-number">2</span>, <span class="hljs-string">&apos;two&apos;</span>],
+  [<span class="hljs-number">3</span>, <span class="hljs-string">&apos;three&apos;</span>],
+]);
+
+[...map.keys()]
+<span class="hljs-comment">// [1, 2, 3]</span>
+
+[...map.values()]
+<span class="hljs-comment">// [&apos;one&apos;, &apos;two&apos;, &apos;three&apos;]</span>
+
+[...map.entries()]
+<span class="hljs-comment">// [[1,&apos;one&apos;], [2, &apos;two&apos;], [3, &apos;three&apos;]]</span>
+
+[...map]
+<span class="hljs-comment">// [[1,&apos;one&apos;], [2, &apos;two&apos;], [3, &apos;three&apos;]]</span>
+</code></pre>
+<p>&#x7D50;&#x5408;array&#x7684;map&#x65B9;&#x6CD5;&#x3001;filter&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x5BE6;&#x73FE;Map&#x7684;&#x904D;&#x6B77;&#x548C;&#x904E;&#x6FFE;&#xFF08;Map&#x672C;&#x8EAB;&#x6C92;&#x6709;map&#x548C;filter&#x65B9;&#x6CD5;&#xFF09;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> map0 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>()
+  .set(<span class="hljs-number">1</span>, <span class="hljs-string">&apos;a&apos;</span>)
+  .set(<span class="hljs-number">2</span>, <span class="hljs-string">&apos;b&apos;</span>)
+  .set(<span class="hljs-number">3</span>, <span class="hljs-string">&apos;c&apos;</span>);
+
+<span class="hljs-keyword">let</span> map1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>(
+  [...map0].filter(([k, v]) =&gt; k &lt; <span class="hljs-number">3</span>)
+);
+<span class="hljs-comment">// Map {1 =&gt; &apos;a&apos;, 2 =&gt; &apos;b&apos;}</span>
+
+<span class="hljs-keyword">let</span> map2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>(
+  [...map0].map(([k, v]) =&gt; [k * <span class="hljs-number">2</span>, <span class="hljs-string">&apos;_&apos;</span> + v])
+    );
+<span class="hljs-comment">// Map {2 =&gt; &apos;_a&apos;, 4 =&gt; &apos;_b&apos;, 6 =&gt; &apos;_c&apos;}</span>
+</code></pre>
+<hr>
+<h1 id="weakset"><strong>WeakSet</strong></h1>
+<p>WeakSet&#x7D50;&#x69CB;&#x8207;Set&#x985E;&#x4F3C;&#xFF0C;&#x4E5F;&#x662F;&#x4E0D;&#x91CD;&#x8907;&#x7684;value&#x7684;&#x96C6;&#x5408;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5B83;&#x8207;Set&#x6709;&#x5169;&#x500B;&#x5340;&#x5225;&#x3002;</p>
+<p>1.WeakSet&#x7684;&#x6210;&#x54E1;&#x53EA;&#x80FD;&#x662F;object&#xFF0C;&#x800C;&#x4E0D;&#x80FD;&#x662F;&#x5176;&#x4ED6;&#x985E;&#x578B;&#x7684;value&#x3002;</p>
+<p>2.WeakSet&#x4E2D;&#x7684;object&#x90FD;&#x662F;&#x5F31;&#x5F15;&#x7528;&#xFF0C;&#x5373;&#x5783;&#x573E;&#x56DE;&#x6536;&#x6A5F;&#x5236;&#x4E0D;&#x8003;&#x616E;WeakSet&#x5C0D;&#x8A72;object&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8AAA;&#xFF0C;&#x5982;&#x679C;&#x5176;&#x4ED6;object&#x90FD;&#x4E0D;&#x518D;&#x5F15;&#x7528;&#x8A72;object&#xFF0C;&#x90A3;&#x9EBC;&#x5783;&#x573E;&#x56DE;&#x6536;&#x6A5F;&#x5236;&#x6703;&#x81EA;&#x52D5;&#x56DE;&#x6536;&#x8A72;object&#x6240;&#x4F54;&#x7528;&#x7684;&#x5167;&#x5B58;&#xFF0C;&#x4E0D;&#x8003;&#x616E;&#x8A72;object&#x9084;&#x5B58;&#x5728;&#x65BC;WeakSet&#x4E4B;&#x4E2D;&#x3002;&#x9019;&#x500B;&#x7279;&#x9EDE;&#x610F;&#x5473;&#x8457;&#xFF0C;&#x7121;&#x6CD5;&#x5F15;&#x7528;WeakSet&#x7684;&#x6210;&#x54E1;&#xFF0C;&#x56E0;&#x6B64;WeakSet&#x662F;&#x4E0D;&#x53EF;iteration&#x7684;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> ws = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakSet</span>();
+ws.add(<span class="hljs-number">1</span>)
+<span class="hljs-comment">// TypeError: Invalid value used in weak set</span>
+ws.add(<span class="hljs-built_in">Symbol</span>())
+<span class="hljs-comment">// TypeError: invalid value used in weak set</span>
+</code></pre>
+<p>&#x4F5C;&#x70BA;&#x69CB;&#x9020;&#x51FD;&#x6578;&#xFF0C;WeakSet&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x500B;array&#x6216;array like&#x7684;object&#x4F5C;&#x70BA;argument&#x3002;&#xFF08;&#x5BE6;&#x969B;&#x4E0A;&#xFF0C;&#x4EFB;&#x4F55;&#x5177;&#x6709;iterable&#x63A5;&#x53E3;&#x7684;object&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x4F5C;&#x70BA;WeakSet&#x7684;argument&#x3002;&#xFF09;&#x8A72;array&#x7684;&#x6240;&#x6709;&#x6210;&#x54E1;&#xFF0C;&#x90FD;&#x6703;&#x81EA;&#x52D5;&#x6210;&#x70BA;WeakSet instance object&#x7684;&#x6210;&#x54E1;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> a = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]];
+<span class="hljs-keyword">var</span> ws = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakSet</span>(a);
+</code></pre>
+<p>&#x4E0A;&#x9762;code&#x4E2D;&#xFF0C;a&#x662F;&#x4E00;&#x500B;array&#xFF0C;&#x5B83;&#x6709;&#x5169;&#x500B;&#x6210;&#x54E1;&#xFF0C;&#x4E5F;&#x90FD;&#x662F;array&#x3002;&#x5C07;a&#x4F5C;&#x70BA;WeakSet&#x69CB;&#x9020;&#x51FD;&#x6578;&#x7684;&#x53C3;&#x6578;&#xFF0C;a&#x7684;&#x6210;&#x54E1;&#x6703;&#x81EA;&#x52D5;&#x6210;&#x70BA;WeakSet&#x7684;&#x6210;&#x54E1;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x662F;a&#x6578;&#x7D44;&#x7684;&#x6210;&#x54E1;&#x6210;&#x70BA;WeakSet&#x7684;&#x6210;&#x54E1;&#xFF0C;&#x800C;&#x4E0D;&#x662F;a&#x6578;&#x7D44;&#x672C;&#x8EAB;&#x3002;&#x9019;&#x610F;&#x5473;&#x8457;&#xFF0C;&#x6578;&#x7D44;&#x7684;&#x6210;&#x54E1;&#x53EA;&#x80FD;&#x662F;&#x5C0D;&#x8C61;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> b = [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+<span class="hljs-keyword">var</span> ws = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakSet</span>(b);
+<span class="hljs-comment">// Uncaught TypeError: Invalid value used in weak set(&#x2026;)</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x78BC;&#x4E2D;&#xFF0C;&#x6578;&#x7D44;b&#x7684;&#x6210;&#x54E1;&#x4E0D;&#x662F;object&#xFF0C;&#x52A0;&#x5165;WeaKSet&#x5C31;&#x6703;&#x5831;&#x932F;&#x3002;</p>
+<p>WeakSet&#x7D50;&#x69CB;&#x6709;&#x4EE5;&#x4E0B;&#x4E09;&#x500B;&#x65B9;&#x6CD5;&#x3002;  </p>
+<p><font color="red">WeakSet.prototype.add(value)</font>&#xFF1A;&#x5411;WeakSet&#x5BE6;&#x4F8B;&#x6DFB;&#x52A0;&#x4E00;&#x500B;&#x65B0;&#x6210;&#x54E1;&#x3002;</p>
+<p><font color="red">WeakSet.prototype.delete(value)</font>&#xFF1A;&#x6E05;&#x9664;WeakSet&#x5BE6;&#x4F8B;&#x7684;&#x6307;&#x5B9A;&#x6210;&#x54E1;&#x3002;</p>
+<p><font color="red">WeakSet.prototype.has(value)</font>&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x500B;&#x5E03;&#x723E;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x67D0;&#x500B;&#x503C;&#x662F;&#x5426;&#x5728;WeakSet&#x5BE6;&#x4F8B;&#x4E4B;&#x4E2D;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> ws = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakSet</span>();
+<span class="hljs-keyword">var</span> obj = {};
+<span class="hljs-keyword">var</span> foo = {};
+
+ws.add(<span class="hljs-built_in">window</span>);
+ws.add(obj);
+
+ws.has(<span class="hljs-built_in">window</span>); <span class="hljs-comment">// true</span>
+ws.has(foo);    <span class="hljs-comment">// false</span>
+
+ws.delete(<span class="hljs-built_in">window</span>);
+ws.has(<span class="hljs-built_in">window</span>);    <span class="hljs-comment">// false</span>
+</code></pre>
+<p>WeakSet&#x4E0D;&#x80FD;&#x904D;&#x6B77;&#xFF0C;&#x662F;&#x56E0;&#x70BA;&#x6210;&#x54E1;&#x90FD;&#x662F;&#x5F31;&#x5F15;&#x7528;&#xFF0C;&#x96A8;&#x6642;&#x53EF;&#x80FD;&#x6D88;&#x5931;&#xFF0C;&#x904D;&#x6B77;&#x6A5F;&#x5236;&#x7121;&#x6CD5;&#x4FDD;&#x8B49;&#x6210;&#x54E1;&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x5F88;&#x53EF;&#x80FD;&#x525B;&#x525B;&#x904D;&#x6B77;&#x7D50;&#x675F;&#xFF0C;&#x6210;&#x54E1;&#x5C31;&#x53D6;&#x4E0D;&#x5230;&#x4E86;&#x3002;WeakSet&#x7684;&#x4E00;&#x500B;&#x7528;&#x8655;&#xFF0C;&#x662F;&#x5132;&#x5B58;DOM node&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x64D4;&#x5FC3;&#x9019;&#x4E9B;node&#x5F9E;&#x6587;&#x6A94;&#x79FB;&#x9664;&#x6642;&#xFF0C;&#x6703;&#x5F15;&#x767C;&#x5167;&#x5B58;&#x6D29;&#x6F0F;&#x3002;  </p>
+<hr>
+<h1 id="weakmap"><strong>WeakMap</strong></h1>
+<p>WeakMap&#x7D50;&#x69CB;&#x8207;Map&#x7D50;&#x69CB;&#x57FA;&#x672C;&#x985E;&#x4F3C;&#xFF0C;&#x552F;&#x4E00;&#x7684;&#x5340;&#x5225;&#x662F;&#x5B83;&#x53EA;&#x63A5;&#x53D7;object&#x4F5C;&#x70BA;key name&#xFF08;null&#x9664;&#x5916;&#xFF09;&#xFF0C;&#x4E0D;&#x63A5;&#x53D7;&#x5176;&#x4ED6;&#x985E;&#x578B;&#x7684;value&#x4F5C;&#x70BA;key name&#xFF0C;&#x800C;&#x4E14;key name&#x6240;&#x6307;&#x5411;&#x7684;object&#xFF0C;&#x4E0D;&#x8A08;&#x5165;&#x5783;&#x573E;&#x56DE;&#x6536;&#x6A5F;&#x5236;&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakMap</span>()
+map.set(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+<span class="hljs-comment">// TypeError: 1 is not an object!</span>
+map.set(<span class="hljs-built_in">Symbol</span>(), <span class="hljs-number">2</span>)
+<span class="hljs-comment">// TypeError: Invalid value used as weak map key</span>
+</code></pre>
+<p>WeakMap&#x7684;&#x8A2D;&#x8A08;&#x76EE;&#x7684;&#x5728;&#x65BC;&#xFF0C;key name&#x662F;object&#x7684;&#x5F31;&#x5F15;&#x7528;&#xFF08;&#x5783;&#x573E;&#x56DE;&#x6536;&#x6A5F;&#x5236;&#x4E0D;&#x5C07;&#x8A72;&#x5F15;&#x7528;&#x8003;&#x616E;&#x5728;&#x5167;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x5176;&#x6240;&#x5C0D;&#x61C9;&#x7684;object&#x53EF;&#x80FD;&#x6703;&#x88AB;&#x81EA;&#x52D5;&#x56DE;&#x6536;&#x3002;&#x7576;object&#x88AB;&#x56DE;&#x6536;&#x5F8C;&#xFF0C;WeakMap&#x81EA;&#x52D5;&#x79FB;&#x9664;&#x5C0D;&#x61C9;&#x7684;&#x9375;&#x503C;&#x5C0D;&#x3002;&#x5178;&#x578B;&#x61C9;&#x7528;&#x662F;&#xFF0C;&#x4E00;&#x500B;&#x5C0D;&#x61C9;DOM element&#x7684;WeakMap&#x7D50;&#x69CB;&#xFF0C;&#x7576;&#x67D0;&#x500B;DOM&#x5143;&#x7D20;&#x88AB;&#x6E05;&#x9664;&#xFF0C;&#x5176;&#x6240;&#x5C0D;&#x61C9;&#x7684;WeakMap&#x8A18;&#x9304;&#x5C31;&#x6703;&#x81EA;&#x52D5;&#x88AB;&#x79FB;&#x9664;&#x3002;&#x57FA;&#x672C;&#x4E0A;&#xFF0C;WeakMap&#x7684;&#x5C08;&#x7528;&#x5834;&#x5408;&#x5C31;&#x662F;&#xFF0C;&#x5B83;&#x7684;&#x9375;&#x6240;&#x5C0D;&#x61C9;&#x7684;object&#xFF0C;&#x53EF;&#x80FD;&#x6703;&#x5728;&#x5C07;&#x4F86;&#x6D88;&#x5931;&#x3002;WeakMap&#x7D50;&#x69CB;&#x6709;&#x52A9;&#x65BC;&#x9632;&#x6B62;&#x5167;&#x5B58;&#x6D29;&#x6F0F;&#x3002;  </p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> wm = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakMap</span>();
+<span class="hljs-keyword">var</span> element = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&quot;.element&quot;</span>);
+
+wm.set(element, <span class="hljs-string">&quot;Original&quot;</span>);
+wm.get(element) <span class="hljs-comment">// &quot;Original&quot;</span>
+
+element.parentNode.removeChild(element);
+element = <span class="hljs-literal">null</span>;
+wm.get(element) <span class="hljs-comment">// undefined</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;code&#x4E2D;&#xFF0C;&#x8B8A;&#x91CF;wm&#x662F;&#x4E00;&#x500B;WeakMap&#x5BE6;&#x4F8B;&#xFF0C;&#x6211;&#x5011;&#x5C07;&#x4E00;&#x500B;DOM&#x7BC0;&#x9EDE;element&#x4F5C;&#x70BA;&#x9375;&#x540D;&#xFF0C;&#x7136;&#x5F8C;&#x92B7;&#x6BC0;&#x9019;&#x500B;&#x7BC0;&#x9EDE;&#xFF0C;element&#x5C0D;&#x61C9;&#x7684;&#x9375;&#x5C31;&#x81EA;&#x52D5;&#x6D88;&#x5931;&#x4E86;&#xFF0C;&#x518D;&#x5F15;&#x7528;&#x9019;&#x500B;&#x9375;&#x540D;&#x5C31;&#x8FD4;&#x56DE;undefined&#x3002;</p>
+<p>WeakMap&#x8207;Map&#x5728;API&#x4E0A;&#x7684;&#x5340;&#x5225;&#x4E3B;&#x8981;&#x662F;&#x5169;&#x500B;&#xFF0C;&#x4E00;&#x662F;&#x6C92;&#x6709;&#x904D;&#x6B77;&#x64CD;&#x4F5C;&#xFF08;&#x5373;&#x6C92;&#x6709;key()&#x3001;values()&#x548C;entries()&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x4E5F;&#x6C92;&#x6709;size&#x5C6C;&#x6027;&#xFF1B;&#x4E8C;&#x662F;&#x7121;&#x6CD5;&#x6E05;&#x7A7A;&#xFF0C;&#x5373;&#x4E0D;&#x652F;&#x6301;clear&#x65B9;&#x6CD5;&#x3002;&#x9019;&#x8207;WeakMap&#x7684;&#x9375;&#x4E0D;&#x88AB;&#x8A08;&#x5165;&#x5F15;&#x7528;&#x3001;&#x88AB;&#x5783;&#x573E;&#x56DE;&#x6536;&#x6A5F;&#x5236;&#x5FFD;&#x7565;&#x6709;&#x95DC;&#x3002;&#x56E0;&#x6B64;&#xFF0C;WeakMap&#x53EA;&#x6709;&#x56DB;&#x500B;&#x65B9;&#x6CD5;&#x53EF;&#x7528;&#xFF1A;get()&#x3001;set()&#x3001;has()&#x3001;delete()&#x3002;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> wm = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakMap</span>();
+
+wm.size
+<span class="hljs-comment">// undefined</span>
+
+wm.forEach
+<span class="hljs-comment">// undefined</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> myElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;logo&apos;</span>);
+<span class="hljs-keyword">let</span> myWeakmap = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakMap</span>();
+
+myWeakmap.set(myElement, {timesClicked: <span class="hljs-number">0</span>});
+
+myElement.addEventListener(<span class="hljs-string">&apos;click&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">let</span> logoData = myWeakmap.get(myElement);
+  logoData.timesClicked++;
+}, <span class="hljs-literal">false</span>);
+</code></pre>
+<p>&#x4E0A;&#x9762;code&#x4E2D;&#xFF0C;myElement&#x662F;&#x4E00;&#x500B;DOM&#x7BC0;&#x9EDE;&#xFF0C;&#x6BCF;&#x7576;&#x767C;&#x751F;click&#x4E8B;&#x4EF6;&#xFF0C;&#x5C31;&#x66F4;&#x65B0;&#x4E00;&#x4E0B;&#x72C0;&#x614B;&#x3002;&#x6211;&#x5011;&#x5C07;&#x9019;&#x500B;&#x72C0;&#x614B;&#x4F5C;&#x70BA;&#x9375;&#x503C;&#x653E;&#x5728;WeakMap&#x88E1;&#xFF0C;&#x5C0D;&#x61C9;&#x7684;&#x9375;&#x540D;&#x5C31;&#x662F;myElement&#x3002;&#x4E00;&#x65E6;&#x9019;&#x500B;DOM&#x7BC0;&#x9EDE;&#x522A;&#x9664;&#xFF0C;&#x8A72;&#x72C0;&#x614B;&#x5C31;&#x6703;&#x81EA;&#x52D5;&#x6D88;&#x5931;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x5167;&#x5B58;&#x6D29;&#x6F0F;&#x98A8;&#x96AA;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="symbol.html" class="navigation navigation-prev " aria-label="Previous page: 1.Symbol">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="proxy.html" class="navigation navigation-next " aria-label="Next page: 3.Proxy">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.set&map","level":"1.3","depth":1,"next":{"title":"3.Proxy","level":"1.4","depth":1,"path":"source/proxy.md","ref":"source/proxy.md","articles":[]},"previous":{"title":"1.Symbol","level":"1.2","depth":1,"path":"source/symbol.md","ref":"source/symbol.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"source/setmap.md","mtime":"2017-02-03T03:16:30.694Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-07T06:45:21.732Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
